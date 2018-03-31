@@ -1,0 +1,31 @@
+@font-face {
+    font-family: 'Yekan';
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/yekan/YekanWeb-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'YekanNumbers';
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/yekan/YekanNumbers-Regular.woff") format("woff");
+
+}
+
+@font-face {
+    font-family: 'jannat';
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/jannat.ttf") format("truetype");
+}
+h1,
+h2,
+h3,
+a {
+    font-family: 'Yekan','YekanNumbers','Roboto', sans-serif; /*Edit*/
+}
+
+p {
+    font-family: 'Yekan',Roboto, sans-serif !important;
+}

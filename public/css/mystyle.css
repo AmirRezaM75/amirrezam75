@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'Yekan';
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/yekan/YekanWeb-Regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: 'YekanNumbers';
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/yekan/YekanNumbers-Regular.woff") format("woff");
+
+}
+
+@font-face {
+    font-family: 'jannat';
+    font-style: normal;
+    font-weight: normal;
+    src: url("../fonts/jannat.ttf") format("truetype");
+}
+body {
+    font-family: 'Yekan',Roboto, sans-serif;
+}
+
+.RTL_direction {
+    direction: rtl !important;
+}
+.mainFonts {
+    font-family: 'Yekan','YekanNumbers','Roboto','Open Sans', sans-serif !important;
+}
+.FaNumbersFont{
+    font-family: 'YekanNumbers', sans-serif !important;
+}
+
+.EnFont {
+    font-family: 'Roboto','Open Sans', sans-serif !important;
+}
+
+.person-info,
+.person-about,
+.skill-left,
+#contactForm textarea,
+#contactForm input,
+.contact-text .title,
+.contact-text .subtitle,
+.blog-text .title,
+.blog-text p,
+.post-body .post-title {
+    text-align: right;
+    direction: rtl;
+}
+.person-info h3,
+.person-about h3,
+.mobile-profile .profile-inner h3,
+.skill-left h2,
+.inline-menu a,
+.home-subtitle,
+.btn-large,
+section .title,
+.post-body h2,
+    /*
+    |
+    |――――――――――――――――――
+    |Single Page Style
+    |――――――――――――――――――
+    |
+    */
+.single-widget ul li a,
+.single-widget .widget-title,
+.single-widget .widget-text a
+{
+    font-family: 'Yekan',Roboto, sans-serif !important;
+}
+.inline-menu a {
+    font-size:16px !important;
+}
+ul#dropdown1 a {
+    font-size:16px !important;
+    text-align: right;
+}
+ul#dropdown1 li.disabled a{
+    color: #dedede !important;
+    font-size: 13px;
+}
+.person-about h3 {
+    text-align: right;
+    color: #00bcd4;
+}
+.home-title {
+    font-family: 'jannat','Yekan';
+    font-size:30px;
+}
+@media only screen and (max-width: 992px) {
+    .mobile-profile h5 {
+        text-align: center;
+    }
+    .mobile-profile h3 {
+        color: #EAB82E;
+        text-align: center;
+    }
+    .mobile-profile {
+        min-height: 200px;
+    }
+    .pp-container {
+        width:100%;
+    }
+    .pp-container img {
+        width:50%;
+    }
+}
+.number_font {
+    font-family: YekanNumbers, Arial, sans-serif;
+}
+.contact-wrap .subtitle a {
+    color: #FFE57F;
+}
+a.post-title-link {
+    width:100%;
+}
+
+
+/*
+|――――――――――――――――――
+|owl-carousel
+|――――――――――――――――――
+*/
+.owl-theme .owl-nav [class*='owl-'] {
+    background: transparent;
+}
+.owl-theme .owl-nav [class*='owl-']:hover {
+    background: transparent;
+}
+
+
+/*
+|――――――――――――――――――
+|SINGLE POST
+|――――――――――――――――――
+*/
