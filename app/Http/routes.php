@@ -1,6 +1,8 @@
 <?php
 use App\Post;
 use App\Skill;
+use App\About;
+use App\Category;
 
 
 Route::get('/admin/contact/manage',['as'=>'contact.manage', 'uses'=>'ContactController@manage']);
@@ -8,8 +10,15 @@ Route::resource('/admin/contact','ContactController');
 Route::post('/','ContactController@createMessage');
 Route::get('/',function (){
     $skills = Skill::all();
-    $posts = Post::orderBy('created_at')->take(3)->get();
-    return view('main.layouts.index',compact('posts','skills'));
+    $about = About::first();
+    $posts = Post::orderBy('created_at','desc')->take(3)->get();
+    return view('main.layouts.index',compact('posts','skills','about'));
+});
+
+Route::get('/blog',function (){
+    $posts = Post::orderBy('created_at','desc')->get();
+    $categories = Category::all();
+    return view('main.layouts.blog',compact('posts','categories'));
 });
 
 
@@ -40,6 +49,9 @@ Route::group(['middleware'=>'role'],function(){
     Route::get('/admin', function () {
         return view('panel.admin.dashboard');
     });
+
+    Route::get('admin/about/edit',['as'=>'admin.about.edit', 'uses'=>'AboutController@edit']);
+    Route::post('admin/about/edit',['as'=>'admin.about.update', 'uses'=>'AboutController@update']);
 
     //RESOURCES
     Route::resource('admin/users','UsersController');

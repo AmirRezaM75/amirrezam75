@@ -29,7 +29,10 @@
             <div class="form-group has-success has-feedback RTL_direction">
                 <div class="row">
                     <div class="col-lg-12 margin-top-20">
-                        <input type="file" name="photo_id">
+                        @if($post->photo)
+                            <img src="{{asset('upload/post/'.$post->photo->path)}}" alt="post photo" class="img-responsive center-block">
+                        @endif
+                        <input type="file" name="photo_id" class="margin-top-20">
                     </div>
                 </div>
                 <div class="row">

@@ -31,8 +31,16 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         if (Auth::check()){
-            $userId = Auth::user()->id;
-            $newpost = Post::create(['user_id'=> $userId,'category_id'=>$request->category_id,'title'=>$request->title,'description'=>$request->description,'text'=>$request->text,'image'=>' ']);
+            $input = $request->all();
+            $input['user_id'] = Auth::user()->id;
+            if ($file = $request->file('photo_id')) {
+                $name = "post"."_".time()."_".$file->getClientOriginalName();
+                $file->move('upload/post',$name);
+                $photo = Photo::create(['path'=>$name]);
+                $input['photo_id'] = $photo->id;
+            }
+
+            $newpost = Post::create($input);
             //PUT ALL YOUR TAGS INSIDE A MULTI DIMENSIONAL ARRAY
             $temp = array();
             $tags = Tag::all();
@@ -108,12 +116,13 @@ class PostsController extends Controller
         $input = $request->all();
         if ($file = $request->file('photo_id')) {
             $name = "post".$post->id."_".time()."_".$file->getClientOriginalName();
-            if ($post->photo_id > 0){
+            if ($post->photo_id != 0){
                 $oldPath =public_path().'/upload/post/'.$post->photo->path;
                 $oldPhoto = Photo::findOrFail($post->photo_id);
                 unlink($oldPath);
                 $file->move('upload/post',$name);
                 $oldPhoto->update(['path'=>$name]);
+                $input['photo_id'] = $oldPhoto->id;
             } else {
                 $file->move('upload/post',$name);
                 $photo = Photo::create(['path'=>$name]);

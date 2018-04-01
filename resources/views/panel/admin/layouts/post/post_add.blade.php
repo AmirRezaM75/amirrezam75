@@ -22,9 +22,13 @@
     <div class="row">
         <div class="col-lg-12">
             <h2 class="RTL_direction main_fonts">ایجاد پست جدید</h2>
-            {!! Form::open(['method'=>'POST', 'action'=>'PostsController@store'],'files' => true) !!}
+            {!! Form::open(['method'=>'POST', 'action'=>'PostsController@store','files' => true]) !!}
                 <div class="form-group has-success has-feedback RTL_direction">
-
+                    <div class="row">
+                        <div class="col-lg-12 margin-top-20">
+                            <input type="file" name="photo_id" class="margin-top-20">
+                        </div>
+                    </div>
                    <div class="row">
                        <div class="col-lg-12 margin-top-10">
                            <div class="input-group">

@@ -223,7 +223,7 @@
                     <div class="col-sm-12 col-md-4">
                         <div class="person-about">
                             <h3 class="about-subtitle">درباره ی من</h3>
-                            <p>سلام، من یک طراح UI و UX و Front End Developer از شرکت T1-Group هستم و دوران آموزشی خود را در زمینه ی وب در مجتمع فنی گذراندم. مشغول تحصیل در دانشگاه علم و فرهنگ</p>
+                            <p>{{$about->text}}</p>
                             <a class="waves-effect waves-light btn-large brand-bg white-text"><i class="mdi-content-archive left"></i> دانلود رزومه </a>
                         </div>
                     </div>
@@ -239,11 +239,11 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="person-info">
                             <h3 class="about-subtitle">اطلاعات شخصی</h3>
-                            <h5><span>نام :</span>امیررضا مهربخش </h5>
-                            <h5><span>سن :</span> 21 </h5>
-                            <h5><span>شغل :</span> طراح سایت </h5>
-                            <h5><span>ایمیل :</span> <span class="EnFont">amirrezax@hotmail.com</span></h5>
-                            <h5><span>آدرس :</span> ایران، تهران</h5>
+                            <h5><span>نام :</span> {{$about->name}}</h5>
+                            <h5><span>سن :</span> {{date('Y') - $about->birthday}} </h5>
+                            <h5><span>شغل :</span> {{$about->job}} </h5>
+                            <h5><span>ایمیل :</span> <span class="EnFont">{{$about->email}}</span></h5>
+                            <h5><span>آدرس :</span> {{$about->address}}</h5>
                         </div>
 
                         <div class="about-social">
@@ -582,7 +582,7 @@
                             </div>
                             <div class="clearfix left-align">
                                 <div class="col-sm-12">
-                                    <a href="blog.html" class="waves-effect waves-light btn-large load-more">See More</a>
+                                    <a href="/blog" class="waves-effect waves-light btn-large load-more">See More</a>
                                 </div>
                             </div>
                         </div>

@@ -195,14 +195,16 @@
                                     </li>
                                 </ul>
                             </aside>
-                            <aside class="single-widget">
-                                <h2 class="widget-title text-right">تگ ها</h2>
-                                <div class="widget-text text-right">
-                                    @foreach($post->tags as $tag)
-                                        <a href="#" class="tags">{{$tag->name}}</a>
-                                    @endforeach
-                                </div>
-                            </aside>
+                            @if(count($post->tags)>0)
+                                <aside class="single-widget">
+                                    <h2 class="widget-title text-right">تگ ها</h2>
+                                    <div class="widget-text text-right">
+                                        @foreach($post->tags as $tag)
+                                            <a href="#" class="tags">{{$tag->name}}</a>
+                                        @endforeach
+                                    </div>
+                                </aside>
+                            @endif
                         </div>
                     </div> <!-- ./sidebar end-->
                     <!-- post container start-->

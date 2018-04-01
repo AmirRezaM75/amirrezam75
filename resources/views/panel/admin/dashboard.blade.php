@@ -264,6 +264,22 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-layers"></i>
+                            <span class="title">سایر بخش ها</span>
+                            <span class="selected"></span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="nav-item">
+                                <a href="{{route('admin.about.edit')}}" class="nav-link ">
+                                    <span class="title">درباره من</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                 </ul>
                 <!-- END SIDEBAR MENU -->
                 <!-- END SIDEBAR MENU -->
