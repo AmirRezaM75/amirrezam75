@@ -95,24 +95,14 @@
                                             <h5>طراح سایت</h5>
                                         </div>
                                     </li><!-- mini profile end-->
-                                    @foreach($categories as $category)
-                                        <li>
-                                            <a href="{{url('/blog/category',$category->id)}}"><i class="fa fa-user fa-fw"></i>{{$category->name}}</a>
-                                        </li>
-                                    @endforeach
+                                    <li><a href="{{url('/#contact')}}"><i class="fa fa-home fa-fw"></i>تماس با ما</a></li>
+                                    <li><a href="{{url('/#about')}}"><i class="fa fa-home fa-fw"></i>درباره من</a></li>
+                                    <li>
+                                        <a class="dropdown-button blog-submenu-init" href="#!" data-activates="dropdown2"><i class="fa fa-home fa-fw"></i>دسته بندی</a>
+                                    </li>
 
-                                    {{--<li><a href="#about" data-section="#about" class="menu-smooth-scroll"><i class="fa fa-user fa-fw"></i>درباره من</a>
-                                    </li>
-                                    <li><a href="#resume" data-section="#resume" class="menu-smooth-scroll"><i class="fa fa-file-text fa-fw"></i>رزومه</a>
-                                    </li>
-                                    <li><a href="#portfolio" data-section="#portfolio" class="menu-smooth-scroll"><i class="fa fa-briefcase fa-fw"></i>نمونه کار</a>
-                                    </li>
-                                    <li><a href="#team" data-section="#team" class="menu-smooth-scroll"><i class="fa fa-users fa-fw"></i>تیم</a>
-                                    </li>
-                                    <li><a href="#blog" data-section="#blog" class="menu-smooth-scroll"><i class="fa fa-pencil fa-fw"></i>بلاگ</a>
-                                    </li>
-                                    <li><a href="#contact" data-section="#contact" class="menu-smooth-scroll"><i class="fa fa-paper-plane fa-fw"></i>ارتباط با ما</a>
-                                    </li>--}}
+                                    <li><a href="{{url('/')}}"><i class="fa fa-home fa-fw"></i>خانه</a></li>
+
                                 </ul>
                                 <ul id="dropdown1" class="inline-menu submenu-ul dropdown-content">
                                     <li class="disabled"><a href="#/">خانه</a> </li>
@@ -128,7 +118,13 @@
 
                                     <li><a href="#/">سایت تیم</a></li>
                                 </ul>
-
+                                <ul id="dropdown2" class="inline-menu submenu-ul dropdown-content">
+                                    @foreach($categories as $category)
+                                        <li>
+                                            <a class="text-right RTL_direction" href="{{url('/blog/category',$category->id)}}"><i></i>{{$category->name}}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </nav>
                     </div>
@@ -146,7 +142,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-12">
-                            <h2 class="title text-right">بلاگ</h2>
+                            <h2 class="title text-right RTL_direction">بلاگ <span style="font-size: 30px;color: #fce99d;"> {{isset($selectedCategory) ? '&#10508; '.$selectedCategory->name : ''}}</span></h2>
                         </div>
                     </div>
                 </div>

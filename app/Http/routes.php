@@ -15,12 +15,18 @@ Route::get('/',function (){
     return view('main.layouts.index',compact('posts','skills','about'));
 });
 
+Route::get('/blog/category/{id}',function ($id){
+    $posts = Post::whereCategoryId($id)->orderBy('created_at','desc')->get();
+    $selectedCategory = Category::where('id',$id)->first();
+    $categories = Category::all();
+    return view('main.layouts.blog',compact('posts','categories','selectedCategory'));
+});
+
 Route::get('/blog',function (){
     $posts = Post::orderBy('created_at','desc')->get();
     $categories = Category::all();
     return view('main.layouts.blog',compact('posts','categories'));
 });
-
 
 
 Route::get('/admin/comments/manage',['as'=>'comments.manage', 'uses'=>'CommentsController@manage']);
