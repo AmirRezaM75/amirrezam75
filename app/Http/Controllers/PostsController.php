@@ -75,7 +75,9 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         $comments = $post->comments()->whereCommentId(0)->get();
         $commentsCount = count($post->comments);
-        return view('main.layouts.article',compact('post','comments','commentsCount'));
+        $recentPosts = Post::orderBy('created_at','desc')->take(5)->get();
+        $categories = Category::all();
+        return view('main.layouts.article',compact('post','comments','commentsCount','recentPosts','categories'));
     }
 
 

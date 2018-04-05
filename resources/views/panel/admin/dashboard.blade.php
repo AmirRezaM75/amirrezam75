@@ -41,7 +41,7 @@
             <!-- BEGIN LOGO -->
             <div class="page-logo">
                 <a href="dashboard.php">
-                    <img height="45px" width="150px" src="{{asset('panel/assets/layouts/layout/img/UniversityPicture.png')}}" alt="logo" class="logo-default" /> </a>
+                    <img height="25px" style="margin-top: 10px;"  src="{{asset('panel/assets/layouts/layout/img/logo.png')}}" alt="logo" class="logo-default" /> </a>
                 <div class="menu-toggler sidebar-toggler">
                     <span></span>
                 </div>

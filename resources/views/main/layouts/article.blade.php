@@ -57,17 +57,16 @@
                     <div class="nav-inner">
                         <nav class="primary-nav">
                             <div class="clearfix nav-wrapper">
-                                <a href="#home" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="{{asset('images/logo.png')}}" alt="">
+                                <a href="/" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="{{asset('images/logo.png')}}" alt="">
                                 </a>
                                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                                 <ul class="right static-menu">
                                     <li class="search-form-li">
-                                        <a id="initSearchIcon" class=""><i class="mdi-action-search"></i> </a>
+                                        <a id="initSearchIcon" class=""><i class="mdi-action-search"></i></a>
                                         <div class="search-form-wrap hide">
                                             <form action="#" class="">
                                                 <input type="search" class="search">
-                                                <button type="submit"><i class="mdi-action-search"></i>
-                                                </button>
+                                                <button type="submit"><i class="mdi-action-search"></i></button>
                                             </form>
                                         </div>
                                     </li>
@@ -89,23 +88,17 @@
                                             <h5>طراح سایت</h5>
                                         </div>
                                     </li><!-- mini profile end-->
+                                    <li><a href="{{url('/#contact')}}"><i class="fa fa-home fa-fw"></i>تماس با ما</a></li>
+                                    <li><a href="{{url('/#about')}}"><i class="fa fa-home fa-fw"></i>درباره من</a></li>
+                                    <li>
+                                        <a class="dropdown-button blog-submenu-init" href="#!" data-activates="dropdown2"><i class="fa fa-home fa-fw"></i>دسته بندی</a>
+                                    </li>
 
+                                    <li><a href="{{url('/blog')}}"><i class="fa fa-home fa-fw"></i>بلاگ</a></li>
+                                    <li><a href="{{url('/')}}"><i class="fa fa-home fa-fw"></i>خانه</a></li>
 
-                                    <li><a href="#about" data-section="#about" class="menu-smooth-scroll"><i class="fa fa-user fa-fw"></i>درباره من</a>
-                                    </li>
-                                    <li><a href="#resume" data-section="#resume" class="menu-smooth-scroll"><i class="fa fa-file-text fa-fw"></i>رزومه</a>
-                                    </li>
-                                    <li><a href="#portfolio" data-section="#portfolio" class="menu-smooth-scroll"><i class="fa fa-briefcase fa-fw"></i>نمونه کار</a>
-                                    </li>
-                                    <li><a href="#team" data-section="#team" class="menu-smooth-scroll"><i class="fa fa-users fa-fw"></i>تیم</a>
-                                    </li>
-                                    <li><a href="#blog" data-section="#blog" class="menu-smooth-scroll"><i class="fa fa-pencil fa-fw"></i>بلاگ</a>
-                                    </li>
-                                    <li><a href="#contact" data-section="#contact" class="menu-smooth-scroll"><i class="fa fa-paper-plane fa-fw"></i>ارتباط با ما</a>
-                                    </li>
                                 </ul>
                                 <ul id="dropdown1" class="inline-menu submenu-ul dropdown-content">
-                                    <li class="disabled"><a href="#/">خانه</a> </li>
                                     @if(!Auth::check())
                                         <li><a href="/register">ثبت نام</a></li>
                                         <li><a href="/login">ورود</a></li>
@@ -118,7 +111,13 @@
 
                                     <li><a href="#/">سایت تیم</a></li>
                                 </ul>
-
+                                <ul id="dropdown2" class="inline-menu submenu-ul dropdown-content">
+                                    @foreach($categories as $category)
+                                        <li>
+                                            <a class="text-right RTL_direction" href="{{url('/blog/category',$category->id)}}"><i></i>{{$category->name}}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
                             </div>
                         </nav>
                     </div>
@@ -142,7 +141,7 @@
                             <li>{{$post->created_at}}</li>
                             <li><a href="#comments" data-section="#comments" class="menu-smooth-scroll EnFont">{{$commentsCount}} Comments</a>
                             </li>
-                            <li><a href="#">طراحی سایت</a>
+                            <li><a href="{{url('/blog/category',$post->category->id)}}">{{$post->category->name}}</a>
                             </li>
                         </ul>
                     </div>
@@ -162,37 +161,20 @@
                             <aside class="single-widget RTL_direction text-right">
                                 <h2 class="widget-title">پست های اخیر</h2>
                                 <ul>
-                                    <li>
-                                        <a href="">بررسی آیفون 6+</a>
-                                        <span>March 24, 2015</span>
-                                    </li>
-                                    <li>
-                                        <a href="">راهنمای تروفی های Uncharted</a>
-                                        <span>March 24, 2015</span>
-                                    </li>
-                                    <li>
-                                        <a href="">بررسی گوشی One Plus 3</a>
-                                        <span>March 24, 2015</span>
-                                    </li>
-                                    <li>
-                                        <a href="">نقد و بررسی فیلم دزدان دریایی</a>
-                                        <span>March 24, 2015</span>
-                                    </li>
+                                    @foreach($recentPosts as $recentPost)
+                                        <li>
+                                            <a href="">{{$recentPost->title}}</a>
+                                            <span class="text-left LTR_direction">{{$recentPost->created_at->diffForHumans()}}</span>
+                                        </li>
+                                    @endforeach
                                 </ul>
                             </aside>
                             <aside class="single-widget text-right RTL_direction">
                                 <h2 class="widget-title">دسته بندی</h2>
                                 <ul>
-                                    <li><a href="#">طراحی سایت</a>
-                                    </li>
-                                    <li><a href="#">آموزش ویدیویی</a>
-                                    </li>
-                                    <li><a href="#">بازی</a>
-                                    </li>
-                                    <li><a href="#">نقد و بررسی</a>
-                                    </li>
-                                    <li><a href="#">تورنومنت</a>
-                                    </li>
+                                    @foreach($categories as $category)
+                                        <li><a href="{{url('blog/category',$category->id)}}">{{$category->name}}</a></li>
+                                    @endforeach
                                 </ul>
                             </aside>
                             @if(count($post->tags)>0)
@@ -200,7 +182,7 @@
                                     <h2 class="widget-title text-right">تگ ها</h2>
                                     <div class="widget-text text-right">
                                         @foreach($post->tags as $tag)
-                                            <a href="#" class="tags">{{$tag->name}}</a>
+                                            <a href="{{url('/blog/tag',$tag->id)}}" class="tags">{{$tag->name}}</a>
                                         @endforeach
                                     </div>
                                 </aside>

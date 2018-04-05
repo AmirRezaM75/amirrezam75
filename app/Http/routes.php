@@ -1,8 +1,10 @@
 <?php
+
 use App\Post;
 use App\Skill;
 use App\About;
 use App\Category;
+
 
 
 Route::get('/admin/contact/manage',['as'=>'contact.manage', 'uses'=>'ContactController@manage']);
@@ -20,6 +22,14 @@ Route::get('/blog/category/{id}',function ($id){
     $selectedCategory = Category::where('id',$id)->first();
     $categories = Category::all();
     return view('main.layouts.blog',compact('posts','categories','selectedCategory'));
+});
+
+Route::get('/blog/tag/{id}',function ($id){
+    $posts = Post::whereHas('tags', function($q){
+        $q->where('tag_id', '22');
+    })->get();
+    $categories = Category::all();
+    return view('main.layouts.blog',compact('posts','categories'));
 });
 
 Route::get('/blog',function (){
