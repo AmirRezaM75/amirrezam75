@@ -368,97 +368,30 @@
                                 <div class="overflow-hidden">
                                     <div class="row">
                                         <div id="teamSlider" class="clearfix owl-carousel owl-theme card-element-wrapper">
-                                            <div class="col-sm-4 single-card-box wow fadeInUpSmall" data-wow-duration=".7s">
-                                                <div class="card">
-                                                    <div class="card-image waves-effect waves-block waves-light">
-                                                        <div class="card-img-wrap">
-                                                            <img class="activator" src="{{asset('images/team/bardia_pic.jpg')}}" alt="">
+                                            @foreach ($members as $member)
+                                                <div class="col-sm-4 single-card-box wow fadeInUpSmall" data-wow-duration=".7s">
+                                                    <div class="card">
+                                                        <div class="card-image waves-effect waves-block waves-light">
+                                                            <div class="card-img-wrap">
+                                                                <img class="activator" src="{{asset('upload/member/'.$member->photo->path)}}" alt="{{$member->name}}">
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="card-content">
-                                                        <span class="card-title activator brand-text">بردیا هاشمی راد<i class="mdi-navigation-more-vert right"></i></span>
-                                                        <p>SEO Expert</p>
-                                                    </div>
-                                                    <div class="card-reveal">
-                                                        <div class="rev-title-wrap">
-                                                            <span class="card-title activator brand-text">بردیا هاشمی راد<i class="mdi-navigation-close right"></i></span>
-                                                            <p>SEO Expert</p>
+                                                        <div class="card-content">
+                                                            <span class="card-title activator brand-text">{{$member->name}}<i class="mdi-navigation-more-vert right"></i></span>
+                                                            <p>{{$member->role}}</p>
                                                         </div>
-                                                        <p class="rev-content">
-                                                            Collaboratively initiate collaborative schemas for high-quality communities. Objectively create sticky relationships via team building outsourcing.
-                                                        </p>
+                                                        <div class="card-reveal">
+                                                            <div class="rev-title-wrap">
+                                                                <span class="card-title activator brand-text">{{$member->name}}<i class="mdi-navigation-close right"></i></span>
+                                                                <p>{{$member->role}}</p>
+                                                            </div>
+                                                            <p class="rev-content text-right RTL_direction">
+                                                                {{$member->text}}
+                                                            </p>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <!-- single team member -->
-                                            <div class="col-sm-4 single-card-box wow fadeInUpSmall" data-wow-delay=".2s" data-wow-duration=".7s">
-                                                <div class="card">
-                                                    <div class="card-image waves-effect waves-block waves-light">
-                                                        <div class="card-img-wrap">
-                                                            <img class="activator" src="images/team/nariman_pic.jpg" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-content">
-                                                        <span class="card-title activator brand-text">نریمان رجبی<i class="mdi-navigation-more-vert right"></i></span>
-                                                        <p>Front End Developer</p>
-                                                    </div>
-                                                    <div class="card-reveal">
-                                                        <div class="rev-title-wrap">
-                                                            <span class="card-title activator brand-text">نریمان رجبی<i class="mdi-navigation-close right"></i></span>
-                                                            <p>Front End Developer</p>
-                                                        </div>
-                                                        <p class="rev-content">
-                                                            Collaboratively initiate collaborative schemas for high-quality communities. Objectively create sticky relationships via team building outsourcing.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- single team member -->
-                                            <div class="col-sm-4 single-card-box wow fadeInUpSmall" data-wow-delay=".4s" data-wow-duration=".7s">
-                                                <div class="card">
-                                                    <div class="card-image waves-effect waves-block waves-light">
-                                                        <div class="card-img-wrap">
-                                                            <img class="activator" src="images/team/ali_pic.jpg" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-content">
-                                                        <span class="card-title activator brand-text">علی سامنی<i class="mdi-navigation-more-vert right"></i></span>
-                                                        <p>Backend Developer</p>
-                                                    </div>
-                                                    <div class="card-reveal">
-                                                        <div class="rev-title-wrap">
-                                                            <span class="card-title activator brand-text">علی سامنی<i class="mdi-navigation-close right"></i></span>
-                                                            <p>Backend Developer</p>
-                                                        </div>
-                                                        <p class="rev-content">
-                                                            Collaboratively initiate collaborative schemas for high-quality communities. Objectively create sticky relationships via team building outsourcing.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- single team member -->
-                                            <div class="col-sm-4 single-card-box">
-                                                <div class="card">
-                                                    <div class="card-image waves-effect waves-block waves-light">
-                                                        <div class="card-img-wrap">
-                                                            <img class="activator" src="images/team/amir_pic.jpg" alt="">
-                                                        </div>
-                                                    </div>
-                                                    <div class="card-content">
-                                                        <span class="card-title activator brand-text">امیررضا مهربخش<i class="mdi-navigation-more-vert right"></i></span>
-                                                        <p>Backend Developer</p>
-                                                    </div>
-                                                    <div class="card-reveal">
-                                                        <div class="rev-title-wrap">
-                                                            <span class="card-title activator brand-text">امیررضا مهربخش<i class="mdi-navigation-close right"></i></span>
-                                                            <p>Front End Developer</p>
-                                                        </div>
-                                                        <p class="rev-content">
-                                                            دیگه خلاقیت قبلو تو طراحی ندارم.فعلا تمرکزم روی Front End هست و دارم روی Laravel و Zend کار میکنم.
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endforeach
                                         </div>
                                         <!-- #teamSlider end -->
                                     </div>

@@ -130,17 +130,17 @@
                             <div class="input-group">
                                 <input type="text" class="form-control" id="searchInput" name="searchInput" placeholder="جستجوی کاربران">
                                 <span class="input-group-btn">
-                                            <a href="javascript:;" class="btn submit">
-                                                <i class="icon-magnifier"></i>
-                                            </a>
-                                        </span>
+                                    <a href="javascript:;" class="btn submit">
+                                        <i class="icon-magnifier"></i>
+                                    </a>
+                                </span>
                             </div>
                             <div class="search-result">
                             </div>
                         </form>
                         <!-- END RESPONSIVE QUICK SEARCH FORM -->
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{\Request::is('admin/posts*') ? 'active open start' : ' '}}">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-layers"></i>
                             <span class="title">پست ها</span>
@@ -148,19 +148,19 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/posts') ? 'active' : ' '}}">
                                 <a href="{{route('admin.posts.index')}}" class="nav-link ">
                                     <span class="title">مدیریت پست ها</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/posts/create') ? 'active' : ' '}}">
                                 <a href="{{route('admin.posts.create')}}" class="nav-link ">
                                     <span class="title">افزودن پست</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{\Request::is('admin/users*') ? 'active open start' : ' '}}">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-layers"></i>
                             <span class="title">کاربران</span>
@@ -168,19 +168,19 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
-                                <a href="/admin/users" class="nav-link ">
+                            <li class="nav-item {{\Request::is('admin/users') ? 'active' : ' '}}">
+                                <a href="{{url('/admin/users')}}" class="nav-link ">
                                     <span class="title">مدیریت کاربران</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
-                                <a href="/admin/users/create" class="nav-link ">
+                            <li class="nav-item {{\Request::is('admin/users/create') ? 'active' : ' '}}">
+                                <a href="{{url('/admin/users/create')}}" class="nav-link ">
                                     <span class="title">افزودن کاربر</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item {{\Request::is('admin/contact/manage') ? 'active open start' : ' '}} {{\Request::is('admin/comments/manage') ? 'active open start' : ' '}}">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-layers"></i>
                             <span class="title">پیام ها</span>
@@ -188,20 +188,19 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/contact/manage') ? 'active' : ' '}}">
                                 <a href="{{route('contact.manage')}}" class="nav-link ">
                                     <span class="title">مدیریت پیام ها</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/comments/manage') ? 'active' : ' '}}">
                                 <a href="{{route('comments.manage')}}" class="nav-link ">
                                     <span class="title">مدیریت کامنت ها</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
-                    <li class="nav-item">
+                    <li class="nav-item {{\Request::is('admin/categories*') ? 'active open start' : ' '}}">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-layers"></i>
                             <span class="title">دسته بندی ها</span>
@@ -209,20 +208,19 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/categories/create') ? 'active' : ' '}}">
                                 <a href="{{route('admin.categories.create')}}" class="nav-link ">
                                     <span class="title">افزودن دسته بندی ها</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/categories') ? 'active' : ' '}}">
                                 <a href="{{route('admin.categories.index')}}" class="nav-link ">
                                     <span class="title">مدیریت دسته بندی ها</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
-                    <li class="nav-item">
+                    <li class="nav-item {{\Request::is('admin/tags*') ? 'active open start' : ' '}}">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-layers"></i>
                             <span class="title">تگ ها</span>
@@ -230,20 +228,19 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/tags/create') ? 'active' : ' '}}">
                                 <a href="{{route('admin.tags.create')}}" class="nav-link ">
                                     <span class="title">افزودن تگ</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/tags') ? 'active' : ' '}}">
                                 <a href="{{route('admin.tags.index')}}" class="nav-link ">
                                     <span class="title">مدیریت تگ ها</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
-                    <li class="nav-item">
+                    <li class="nav-item {{\Request::is('admin/skills*') ? 'active open start' : ' '}}">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-layers"></i>
                             <span class="title">مهارت ها</span>
@@ -251,20 +248,39 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/skills/create') ? 'active' : ' '}}">
                                 <a href="{{route('admin.skills.create')}}" class="nav-link ">
                                     <span class="title">افزودن مهارت</span>
                                 </a>
                             </li>
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/skills') ? 'active' : ' '}}">
                                 <a href="{{route('admin.skills.index')}}" class="nav-link ">
                                     <span class="title">مدیریت مهارت ها</span>
                                 </a>
                             </li>
                         </ul>
                     </li>
-
-                    <li class="nav-item">
+                    <li class="nav-item {{\Request::is('admin/members*') ? 'active open start' : ' '}}">
+                        <a href="javascript:;" class="nav-link nav-toggle">
+                            <i class="icon-layers"></i>
+                            <span class="title">اعضای گروه</span>
+                            <span class="selected"></span>
+                            <span class="arrow"></span>
+                        </a>
+                        <ul class="sub-menu">
+                            <li class="nav-item {{\Request::is('admin/members/create') ? 'active' : ' '}}">
+                                <a href="{{route('admin.members.create')}}" class="nav-link ">
+                                    <span class="title">افزودن عضو جدید</span>
+                                </a>
+                            </li>
+                            <li class="nav-item {{\Request::is('admin/members') ? 'active' : ' '}}">
+                                <a href="{{route('admin.members.index')}}" class="nav-link ">
+                                    <span class="title">مدیریت اعضای گروه</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="nav-item {{\Request::is('admin/about*') ? 'active open start' : ' '}}">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-layers"></i>
                             <span class="title">سایر بخش ها</span>
@@ -272,7 +288,7 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item">
+                            <li class="nav-item {{\Request::is('admin/about/edit') ? 'active' : ' '}}">
                                 <a href="{{route('admin.about.edit')}}" class="nav-link ">
                                     <span class="title">درباره من</span>
                                 </a>
@@ -301,8 +317,7 @@
     <!-- BEGIN FOOTER -->
     <div class="page-footer">
         <div class="page-footer-inner EnFont"> 2018 &copy; T1-Group Theme By
-            <a target="_blank" href="http://amirrezam75.ir">AmirRezaM75</a> &nbsp;|&nbsp;
-            <a href="" title="" target="_blank">JBardia</a>
+            <a target="_blank" href="http://amirrezam75.ir">AmirRezaM75</a>
         </div>
         <div class="scroll-to-top">
             <i class="icon-arrow-up"></i>

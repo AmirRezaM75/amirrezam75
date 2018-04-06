@@ -4,6 +4,7 @@ use App\Post;
 use App\Skill;
 use App\About;
 use App\Category;
+use App\Member;
 
 
 
@@ -11,10 +12,11 @@ Route::get('/admin/contact/manage',['as'=>'contact.manage', 'uses'=>'ContactCont
 Route::resource('/admin/contact','ContactController');
 Route::post('/','ContactController@createMessage');
 Route::get('/',function (){
+    $members = Member::all();
     $skills = Skill::all();
     $about = About::first();
     $posts = Post::orderBy('created_at','desc')->take(3)->get();
-    return view('main.layouts.index',compact('posts','skills','about'));
+    return view('main.layouts.index',compact('posts','skills','about','members'));
 });
 
 Route::get('/blog/category/{id}',function ($id){
@@ -25,8 +27,8 @@ Route::get('/blog/category/{id}',function ($id){
 });
 
 Route::get('/blog/tag/{id}',function ($id){
-    $posts = Post::whereHas('tags', function($q){
-        $q->where('tag_id', '22');
+    $posts = Post::whereHas('tags', function($q) use ($id){
+        $q->where('tag_id', $id);
     })->get();
     $categories = Category::all();
     return view('main.layouts.blog',compact('posts','categories'));
@@ -75,6 +77,7 @@ Route::group(['middleware'=>'role'],function(){
     Route::resource('admin/categories','CategoriesController');
     Route::resource('admin/tags','TagsController');
     Route::resource('admin/skills','SkillsController');
+    Route::resource('admin/members','MembersController');
 });
 
 
