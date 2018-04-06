@@ -180,7 +180,7 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="nav-item {{\Request::is('admin/contact/manage') ? 'active open start' : ' '}} {{\Request::is('admin/comments/manage') ? 'active open start' : ' '}}">
+                    <li class="nav-item {{\Request::is('admin/contact') ? 'active open start' : ' '}} {{\Request::is('admin/comments') ? 'active open start' : ' '}}">
                         <a href="javascript:;" class="nav-link nav-toggle">
                             <i class="icon-layers"></i>
                             <span class="title">پیام ها</span>
@@ -188,13 +188,13 @@
                             <span class="arrow"></span>
                         </a>
                         <ul class="sub-menu">
-                            <li class="nav-item {{\Request::is('admin/contact/manage') ? 'active' : ' '}}">
-                                <a href="{{route('contact.manage')}}" class="nav-link ">
+                            <li class="nav-item {{\Request::is('admin/contact') ? 'active' : ' '}}">
+                                <a href="{{route('admin.contact.index')}}" class="nav-link ">
                                     <span class="title">مدیریت پیام ها</span>
                                 </a>
                             </li>
-                            <li class="nav-item {{\Request::is('admin/comments/manage') ? 'active' : ' '}}">
-                                <a href="{{route('comments.manage')}}" class="nav-link ">
+                            <li class="nav-item {{\Request::is('admin/comments') ? 'active' : ' '}}">
+                                <a href="{{route('admin.comments.index')}}" class="nav-link ">
                                     <span class="title">مدیریت کامنت ها</span>
                                 </a>
                             </li>

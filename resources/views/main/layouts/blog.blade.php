@@ -172,8 +172,13 @@
                                                 </div>
                                             </div>
                                             <div class="clearfix card-content">
-                                                <a href="#" class="left js-favorite" title="Love this"><i class="mdi-action-favorite"></i><span class="numb EnFont">{{$post->likes}}</span></a>
-                                                <a href="{{route('posts.show',$post->id)}}" class="brand-text right waves-effect">Read More</a>
+                                                @if(Auth::check())
+                                                    <a href="#" class="left post-like js-favorite EnFont {{Auth::user()->likes()->where('post_id',$post->id)->first() ? 'active' : ''}}" title="{{Auth::user()->likes()->where('post_id',$post->id)->first() ? 'شما قبلا این پست را لایک کرده اید' : 'لایک'}}" data-postid="{{$post->id}}"><i class="mdi-action-favorite"></i> <span class="numb">{{$post->likes}}</span></a>
+                                                @else
+                                                    <a href="#" class="left post-like EnFont " title="برای لایک کردن باید وارد شوید"><i class="mdi-action-favorite"></i> <span class="numb">{{$post->likes}}</span></a>
+                                                @endif
+                                                {{--<a href="#" class="left js-favorite" title="Love this"><i class="mdi-action-favorite"></i><span class="numb EnFont">{{$post->likes}}</span></a>--}}
+                                                <a href="{{route('posts.show',$post->id)}}" class="brand-text right waves-effect">ادامه مطلب</a>
                                             </div>
                                         </div>
                                     </article> <!-- ./single blog post end -->
@@ -223,7 +228,10 @@
 </main>
 <!-- Main Container end-->
 
-
+<script>
+    var token = '{{ Session::token() }}';
+    var urlLike = '{{route('like')}}';
+</script>
 <!-- JavaScripts -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="{{asset('js/jquery.easing.1.3.min.js')}}"></script>
@@ -240,6 +248,7 @@
 <script src="{{asset('libs/sweetalert/sweet-alert.min.js')}}"></script>
 <script src="{{asset('js/common.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/myScript.js')}}"></script>
 
 </body>
 </html>

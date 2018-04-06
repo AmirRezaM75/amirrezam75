@@ -201,7 +201,7 @@
                             <div class="clearfix post-footer">
 
                                 @if(Auth::check())
-                                    <a href="#" class="left post-like js-favorite EnFont {{Auth::user()->likes()->where('post_id',$post->id)->first() ? 'active' : ''}}" title="Love this" data-postid="{{$post->id}}"><i class="mdi-action-favorite"></i> <span class="numb">{{$post->likes}}</span></a>
+                                    <a href="#" class="left post-like js-favorite EnFont {{Auth::user()->likes()->where('post_id',$post->id)->first() ? 'active' : ''}}" title="{{Auth::user()->likes()->where('post_id',$post->id)->first() ? 'شما قبلا این پست را لایک کرده اید' : 'لایک'}}" data-postid="{{$post->id}}"><i class="mdi-action-favorite"></i> <span class="numb">{{$post->likes}}</span></a>
                                 @else
                                     <a href="#" class="left post-like EnFont " title="برای لایک کردن باید وارد شوید"><i class="mdi-action-favorite"></i> <span class="numb">{{$post->likes}}</span></a>
                                 @endif
@@ -281,7 +281,7 @@
                                         <label for="comment" class="input-label">Comment</label>
                                     </div>
                                     <div class="input-field submit-wrap">
-                                        <button type="submit" class="waves-effect waves-light btn-large brand-bg white-text comm-submit regular-text">SEND MESSAGE</button>
+                                        <button type="submit" class="waves-effect waves-light btn-large brand-bg white-text comm-submit regular-text">ارسال کامنت</button>
                                     </div>
                                     {!! Form::close() !!}
                                 </div>

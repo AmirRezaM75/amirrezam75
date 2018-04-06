@@ -461,7 +461,7 @@
     <!-- #funfacts Section end -->
 
     <!-- Blog Section end -->
-    <section id="blog" class="scroll-section root-sec grey lighten-5 padd-tb-120 blog-wrap">
+    <section id="blog" class="scroll-section root-sec grey lighten-5 blog-wrap">
         <div class="padd-tb-60 brand-bg portfolio-top">
             <div class="portfolio-inner">
                 <div class="container">
@@ -504,7 +504,7 @@
                                             </div>
                                             <div class="clearfix card-content">
                                                 <a href="#" class="left js-favorite" title="Love this"><i class="mdi-action-favorite"></i><span class="numb EnFont">{{$post->likes}}</span></a>
-                                                <a href="{{route('posts.show',$post->id)}}" class="brand-text right waves-effect">Read More</a>
+                                                <a href="{{route('posts.show',$post->id)}}" class="brand-text right waves-effect">ادامه مطلب</a>
                                             </div>
                                         </div>
                                     </article> <!-- ./single blog post end -->
@@ -515,7 +515,7 @@
                             </div>
                             <div class="clearfix left-align">
                                 <div class="col-sm-12">
-                                    <a href="/blog" class="waves-effect waves-light btn-large load-more">See More</a>
+                                    <a href="/blog" class="waves-effect waves-light btn-large load-more">مشاهده بیشتر</a>
                                 </div>
                             </div>
                         </div>
@@ -553,15 +553,15 @@
                                         {!! Form::open(['method'=>'POST', 'action'=>'ContactController@createMessage','id'=>'contactForm']) !!}
 
                                             <div class="input-field">
-                                                <input id="contact_name" type="text" name="name" class="validate input-box">
+                                                <input id="contact_name" type="text" name="name" class="validate input-box" required>
                                                 <label for="contact_name" class="input-label">نام</label>
                                             </div>
                                             <div class="input-field">
-                                                <input id="contact_email" type="email" name="email" class="validate input-box">
+                                                <input id="contact_email" type="email" name="email" class="validate input-box EnFont" required>
                                                 <label for="contact_email" class="input-label">ایمیل</label>
                                             </div>
                                             <div class="input-field">
-                                                <input id="contact_subject" type="text" name="subject" class="validate input-box">
+                                                <input id="contact_subject" type="text" name="subject" class="validate input-box" required>
                                                 <label for="contact_subject" class="input-label">موضوع</label>
                                             </div>
                                             <div class="input-field textarea-input">

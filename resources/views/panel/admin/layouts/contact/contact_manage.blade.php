@@ -53,9 +53,9 @@
             @endif
         </div>{{-- .COL-LG-12 --}}
     </div>{{-- .ROw --}}
-    @if(Session::has('deleted_contact'))
+    @if(Session::has('delete_message'))
     <div class="alert alert-danger">
-        {{session('deleted_contact')}}
+        {{session('delete_message')}}
     </div>
     @endif
 @stop

@@ -5,11 +5,15 @@
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
-            <a href="dashboard.php">Dashboard</a>
+            <a href="{{url('/admin')}}">Dashboard</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
-            <span>Edit User</span>
+            <a href="{{url('/admin/contact')}}">Contact Manager</a>
+            <i class="fa fa-circle"></i>
+        </li>
+        <li>
+            <span>Edit Contact Message</span>
         </li>
     </ul>
 </div>

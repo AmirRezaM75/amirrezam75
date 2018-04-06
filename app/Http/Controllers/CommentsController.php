@@ -15,7 +15,8 @@ class CommentsController extends Controller
 
     public function index()
     {
-        //
+        $comments = Comment::all();
+        return view('panel.admin.layouts.comment.comment_manage',compact('comments'));
     }
 
     public function create()
@@ -43,7 +44,7 @@ class CommentsController extends Controller
     {
         $comment = Comment::findOrFail($id);
         $comment->update(['text'=>$request->text]);
-        return redirect('/admin/comments/manage');
+        return redirect('/admin/comments');
     }
 
     public function destroy($id)
@@ -51,7 +52,7 @@ class CommentsController extends Controller
         $comment = Comment::findOrFail($id);
         $comment->delete();
         Session::flash('deleted_comment','The Comment has been deleted successfully');
-        return redirect('/admin/comments/manage');
+        return redirect('/admin/comments');
 
     }
 
@@ -72,9 +73,4 @@ class CommentsController extends Controller
 
     }
 
-    public function manage()
-    {
-        $comments = Comment::all();
-        return view('panel.admin.layouts.comment.comment_manage',compact('comments'));
-    }
 }

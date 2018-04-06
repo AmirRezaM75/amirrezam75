@@ -17,7 +17,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+        $contacts = Contact::all();
+        return view('panel.admin.layouts.contact.contact_manage',compact('contacts'));
     }
 
     public function create()
@@ -45,15 +46,15 @@ class ContactController extends Controller
     {
         $contact = Contact::findOrFail($id);
         $contact->update($request->all());
-        return redirect('/admin/contact/manage');
+        return redirect('/admin/contact');
     }
 
     public function destroy($id)
     {
         $contact = Contact::findOrFail($id);
         $contact->delete();
-        Session::flash('deleted_contact','The Message has been deleted successfully');
-        return redirect('/admin/contact/manage');
+        Session::flash('delete_message','The Message has been deleted successfully');
+        return redirect('/admin/contact');
 
     }
 
@@ -61,11 +62,5 @@ class ContactController extends Controller
     {
         Contact::create($request->all());
         return redirect('/');
-    }
-
-    public function manage()
-    {
-        $contacts = Contact::all();
-        return view('panel.admin.layouts.contact.contact_manage',compact('contacts'));
     }
 }
