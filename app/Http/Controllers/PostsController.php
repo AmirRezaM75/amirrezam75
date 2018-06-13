@@ -141,6 +141,10 @@ class PostsController extends Controller
     {
         $post = Post::findOrFail($id);
         $post->tags()->detach();
+        $photo = $post->photo;
+        $path = public_path().'/upload/post/'.$photo->path;
+        $photo->delete();
+        unlink($path);
         $post->delete();
         Session::flash('deleted_post','The Post has been deleted successfully');
         return redirect('/admin/posts');
