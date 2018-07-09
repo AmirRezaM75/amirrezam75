@@ -19,7 +19,7 @@
                             <label for="email" class="col-md-4 control-label">ایمیل</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input id="email" type="email" class="form-control EnFont" name="email" value="{{ old('email') }}">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -47,7 +47,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <div class="checkbox">
                                     <label>
-                                        <input type="checkbox" name="remember"> مرا به خاطر بسپار
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> مرا به خاطر بسپار
                                     </label>
                                 </div>
                             </div>
@@ -59,9 +59,15 @@
                                     <i class="fa fa-btn fa-sign-in"></i> ورود
                                 </button>
 
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">رمز خود را فراموش کردید؟</a>
+                                <a class="btn btn-link common_anchor" href="{{ url('/password/reset') }}">رمز خود را فراموش کردید؟</a>
                             </div>
                         </div>
+
+                        @if ($errors->has('active'))
+                            <div class="alert alert-danger RTL_direction text-right">
+                                {{ $errors->first('active') }}
+                            </div>
+                        @endif
                     </form>
                 </div>
             </div>

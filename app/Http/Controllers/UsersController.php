@@ -6,8 +6,7 @@ use App\Photo;
 use App\Role;
 use App\User;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
@@ -49,9 +48,11 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        //
+        $user = Auth::user();
+        return view('panel.user.profile.edit',compact('user'));
+
     }
 
     /**
@@ -107,5 +108,32 @@ class UsersController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
+        $this->validate($request, [
+            'name' => array(
+                'required',
+                'min:4',
+                'max:255',
+                'regex:/^[پچجحخهعغفقثصضشسیبلاتنمکگوئدذرزطظژؤإۀآأءًٌٍَُِّ\s\n\r\t\(\)\[\]\{\}\؛]+$/',
+            ),
+            'email' => 'required|max:255|unique:users,email,'.$user->id,
+            'username' => array(
+                'required',
+                'min:6',
+                'max:255',
+                'regex:/^[A-Za-z][a-zA-Z0-9]*$/',
+                'unique:users,username,'.$user->id,
+            )
+        ]);
+
+
+        $user->update($request->all());
+        return redirect('/user/profile/edit');
+
     }
 }

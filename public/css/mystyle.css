@@ -26,15 +26,32 @@ body {
 .RTL_direction {
     direction: rtl !important;
 }
+
 .mainFonts {
     font-family: 'Yekan','YekanNumbers','Roboto','Open Sans', sans-serif !important;
 }
+
 .FaNumbersFont{
     font-family: 'YekanNumbers', sans-serif !important;
 }
 
 .EnFont {
     font-family: 'Roboto','Open Sans', sans-serif !important;
+}
+
+.common_anchor,
+.common_anchor:hover,
+.common_anchor:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+.img-circle {
+    border-radius: 50%!important
+}
+
+.margin-top-20 {
+    margin-top: 20px;
 }
 
 .person-info,
@@ -46,7 +63,8 @@ body {
 .contact-text .subtitle,
 .blog-text .title,
 .blog-text p,
-.post-body .post-title {
+.post-body .post-title,
+.help-block {
     text-align: right;
     direction: rtl;
 }
@@ -108,9 +126,6 @@ ul#dropdown1 li.disabled a{
     .pp-container img {
         width:50%;
     }
-}
-.number_font {
-    font-family: YekanNumbers, Arial, sans-serif;
 }
 .contact-wrap .subtitle a {
     color: #FFE57F;

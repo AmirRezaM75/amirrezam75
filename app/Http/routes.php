@@ -59,6 +59,9 @@ Route::auth();
 Route::get('/home', 'HomeController@index');
 
 
+Route::get('/user/profile/edit','UsersController@show');
+Route::patch('/user/profile/edit','UsersController@updateProfile');
+
 ///////////////////////ADMIN/////////////////////
 Route::group(['middleware'=>'role'],function(){
     Route::get('/admin', function () {

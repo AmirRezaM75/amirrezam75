@@ -124,11 +124,19 @@
                                             </form>
                                         </div>
                                     </li>
-                                    <li>
-                                        <a class="dropdown-button blog-submenu-init" href="#!" data-activates="dropdown1">
-                                            <i class="mdi-navigation-more-vert right"></i>
-                                        </a>
-                                    </li>
+                                    @if(Auth::check())
+                                        <li>
+                                            <a class="dropdown-button blog-submenu-init" href="#!" data-activates="static-dropdown" style="padding: 0;">
+                                                <img src="{{asset('images/user.png')}}" class="img-circle margin-top-20" height="40" alt="">
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li>
+                                            <a class="dropdown-button blog-submenu-init" href="#!" data-activates="static-dropdown">
+                                                <i class="mdi-navigation-more-vert right"></i>
+                                            </a>
+                                        </li>
+                                    @endif
                                 </ul>
                                 <ul class="inline-menu side-nav" id="mobile-demo">
 
@@ -157,19 +165,23 @@
                                     <li><a href="#contact" data-section="#contact" class="menu-smooth-scroll"><i class="fa fa-paper-plane fa-fw"></i>ارتباط با ما</a>
                                     </li>
                                 </ul>
-                                <ul id="dropdown1" class="inline-menu submenu-ul dropdown-content">
-                                    <li class="disabled"><a href="#/">خانه</a> </li>
+                                <ul id="static-dropdown" class="inline-menu submenu-ul dropdown-content text-right">
                                     @if(!Auth::check())
                                         <li><a href="/register">ثبت نام</a></li>
                                         <li><a href="/login">ورود</a></li>
                                     @endif
 
                                     @if(Auth::check())
+                                        <li class="disabled" style="cursor:default;">{{Auth::user()->name}}</li>
+                                        @if(Auth::user()->role_id == 1)
+                                        <li><a href="/user/profile/edit">ویرایش پروفایل</a></li>
+                                        @else
                                         <li><a href="/admin">پنل</a></li>
+                                        @endif
                                         <li><a href="/logout">خروج</a></li>
                                     @endif
 
-                                    <li><a href="#/">سایت تیم</a></li>
+                                    {{--<li><a href="#/">سایت تیم</a></li>--}}
                                 </ul>
 
                             </div>
@@ -536,7 +548,7 @@
                             <div class="clearfix section-head contact-text">
                                 <div class="col-sm-12">
                                     <h2 class="title">تماس با ما</h2>
-                                    <p class="subtitle">برای ثبت سفارش میتوانید با شماره ی <a class="number_font" href="tel:0935-195-2609">09351952609</a> تماس بگیرید.</p>
+                                    <p class="subtitle">برای ثبت سفارش میتوانید با شماره ی <a class="FaNumbersFont" href="tel:0935-195-2609">09351952609</a> تماس بگیرید.</p>
                                 </div>
                             </div> <!-- contact text end -->
 
