@@ -79,23 +79,9 @@ class UsersController extends Controller
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $input = $request->all();
-        if ($file = $request->file('photo')) {
-            $name = "pictureProfile_".time()."_".$file->getClientOriginalName();
-            if ($user->photo_id > 0){
-                $oldPath =public_path().'/upload/profile/'.$user->photo->path;
-                $oldPhoto = Photo::findOrFail($user->photo_id);
-                unlink($oldPath);
-                $file->move('upload/profile',$name);
-                $oldPhoto->update(['path'=>$name]);
-                $input['photo_id'] = $oldPhoto->id;
-            } else {
-                $file->move('upload/profile',$name);
-                $photo = Photo::create(['path'=>$name]);
-                $input['photo_id'] = $photo->id;
-            }
-        }
-        $user->update($input);
+        $user->update([
+            'status'=>$request->status,
+            'role_id'=>$request->role_id]);
         return redirect('admin/users');
     }
 
@@ -107,7 +93,9 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect('admin/users');
     }
 
 
@@ -135,5 +123,30 @@ class UsersController extends Controller
         $user->update($request->all());
         return redirect('/user/profile/edit');
 
+    }
+
+
+
+    public function updatePicture(Request $request)
+    {
+        $user = User::findOrFail($request->userId);
+        if ($file = $request->file('croppedImage')) {
+            $name = "profile_".time()."_".$file->getClientOriginalName().'.png';
+            if ($user->photo_id > 0){
+                $oldPath =public_path().'/upload/profile/'.$user->photo->path;
+                $oldPhoto = Photo::findOrFail($user->photo_id);
+                unlink($oldPath);
+                $file->move('upload/profile',$name);
+                $oldPhoto->update(['path'=>$name]);
+                $input['photo_id'] = $oldPhoto->id;
+                return $name;
+            } else {
+                $file->move('upload/profile',$name);
+                $photo = Photo::create(['path'=>$name]);
+                $input['photo_id'] = $photo->id;
+                $user->update(["photo_id"=>$photo->id]);
+                return $name;
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             @if(!empty(session('message')))
-                <div class="alert alert-danger">
+                <div class="alert alert-danger RTL_direction">
                     {{ session('message') }}
                 </div>
             @endif

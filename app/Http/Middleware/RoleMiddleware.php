@@ -17,13 +17,13 @@ class RoleMiddleware
     public function handle($request, Closure $next)
     {
         if(Auth::check()){
-            if(Auth::user()->isAdmin()){
+            if(Auth::user()->isAdmin() or Auth::user()->isAuthor()){
                 return $next($request);
             } else {
                 return redirect(403);
             }
         } else {
-            $request->session()->flash('message','You have to login in order to access this page');
+            $request->session()->flash('message','برای دسترسی به قسمت ادمین باید لاگین کنید.');
             return redirect('/login');
         }
 

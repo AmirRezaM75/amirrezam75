@@ -58,20 +58,20 @@
 
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <img alt="picture profile" class="img-circle" src="{{asset('upload/profile/'.Auth::user()->photo->path)}}" />
+                            <img alt="picture profile" class="img-circle" src="{{Auth::user()->photo ? asset('upload/profile/'.Auth::user()->photo->path) : asset('images/user.png')}}" />
                             <span class="username username-hide-on-mobile"> {{Auth::user()->name}} </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-default">
+                        <ul class="dropdown-menu dropdown-menu-default  main_fonts">
                             <li>
-                                <a href="#/">
-                                    <i class="icon-user"></i> My Profile
+                                <a href="/#">
+                                    <i class="icon-user"></i> پروفایل من
                                 </a>
                             </li>
                             <li class="divider"> </li>
                             <li>
                                 <a href="/logout">
-                                    <i class="icon-key"></i> Log Out </a>
+                                    <i class="icon-key"></i> خروج </a>
                             </li>
                         </ul>
                     </li>

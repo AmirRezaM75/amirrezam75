@@ -28,7 +28,7 @@
                             <label for="username" class="col-md-4 control-label">نام کاربری</label>
 
                             <div class="col-md-6">
-                                <input id="username" type="text" class="form-control" name="username" value="{{ old('username') }}">
+                                <input id="username" type="text" class="form-control EnFont" name="username" value="{{ old('username') }}">
 
                                 @if ($errors->has('username'))
                                     <span class="help-block">
@@ -42,7 +42,7 @@
                             <label for="email" class="col-md-4 control-label">ایمیل</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}">
+                                <input id="email" type="email" class="form-control EnFont" name="email" value="{{ old('email') }}">
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">

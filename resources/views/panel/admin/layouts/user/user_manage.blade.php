@@ -35,12 +35,16 @@
                         @foreach($users as $user)
                             <tr>
                                 <td class="text-center">
-                                    <button class="btn btn-danger"><a href="#"> حذف </a> </button>
+                                    <form action="{{url('admin/users/'. $user->id)}}" method="post" style="display:inline-block;">
+                                        {{method_field('DELETE')}}
+                                        {{csrf_field()}}
+                                        <button class="btn btn-danger"> حذف </button>
+                                    </form>
                                     <button class="btn btn-info"><a href="{{route('admin.users.edit',$user->id)}}"> ویرایش </a> </button>
                                 </td>
                                 <td class="text-center">{{$user->updated_at->diffForHumans()}}</td>
                                 <td class="text-center">{{$user->created_at->diffForHumans()}}</td>
-                                <td class="text-center">{{$user->status == 1 ? 'Active' : 'Deactivate'}}</td>
+                                <td class="text-center">{{$user->status == 1 ? 'فعال' : 'غیر فعال'}}</td>
                                 <td class="text-center">{{$user->role->name}}</td>
                                 <td class="text-right RTL_direction EnFont">{{$user -> email}}</td>
                                 <td class="text-right RTL_direction">{{$user -> name}}</td>

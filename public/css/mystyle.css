@@ -49,6 +49,7 @@ body {
 .img-circle {
     border-radius: 50%!important
 }
+@media (max-width:767px){.hidden-xs{display:none!important}}
 
 .margin-top-20 {
     margin-top: 20px;

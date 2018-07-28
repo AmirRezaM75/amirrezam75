@@ -100,3 +100,8 @@ Route::post('/ajax/tags/delete',[
     'uses'=>'TagsController@deleteTag'
 ]);
 
+Route::post('/ajax/user/picture/edit',[
+    'as'=>'updatePictureProfile',
+    'uses'=>'UsersController@updatePicture'
+]);
+

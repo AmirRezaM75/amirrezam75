@@ -42,15 +42,6 @@
     <script src="{{asset('js/html5shiv.js')}}"></script>
     <![endif]-->
 </head>
-<style>
-    /*myStyle for portfolio part*/
-    .fc-mac > .fc-image-mask{
-        overflow-y: scroll;
-    }
-    .fc-film  .fc-image-masked{
-        height:2991px !important;
-    }
-</style>
 <body>
 
 
@@ -127,7 +118,7 @@
                                     @if(Auth::check())
                                         <li>
                                             <a class="dropdown-button blog-submenu-init" href="#!" data-activates="static-dropdown" style="padding: 0;">
-                                                <img src="{{asset('images/user.png')}}" class="img-circle margin-top-20" height="40" alt="">
+                                                <img src="{{Auth::user()->photo ? asset('upload/profile/'.Auth::user()->photo->path) : asset('images/user.png')}}" class="img-circle margin-top-20" height="40" alt="">
                                             </a>
                                         </li>
                                     @else
@@ -144,7 +135,7 @@
                                     <li class="mobile-profile">
                                         <div class="profile-inner">
                                             <div class="pp-container">
-                                                <img src="{{asset('images/picture_profile_2.jpg')}}" class="center-block" alt="">
+                                                <img src="{{asset('images/picture_profile.jpg')}}" class="center-block" alt="">
                                             </div>
                                             <h3>امیررضا مهربخش</h3>
                                             <h5>طراح سایت</h5>
@@ -338,7 +329,7 @@
 
     <!-- Portfolio Section start -->
     <section id="portfolio" class="scroll-section root-sec white portfolio-wrap">
-        <div class="padd-tb-120 brand-bg portfolio-top">
+        <div class="padd-tb-60 brand-bg portfolio-top">
             <div class="portfolio-inner">
                 <div class="container">
                     <div class="row">
@@ -353,7 +344,7 @@
 
         <div class="portfolio-bottom">
             <div class="container">
-                <div class="row">
+                <div class="row hidden-xs">
                     <div class="col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
                         <div class="fc-mac"></div>
                     </div>
@@ -372,7 +363,7 @@
                         <div class="row">
                             <div class="clearfix section-head team-text">
                                 <div class="col-sm-12">
-                                    <h2 class="title text-right">تیم</h2>
+                                    <h2 class="title text-right">اعضای تیم</h2>
                                     <p class="regular-text text-right RTL_direction">تیم "تیوان" شامل افرادی با سلیقه و با روحیه خوب میباشند که هر کدام در زمینه ی خودشان عالی هستند.مهمترین چیز در این تیم حفظ احترام و دوستی هست.</p>
                                 </div>
                             </div>
@@ -475,12 +466,10 @@
     <!-- Blog Section end -->
     <section id="blog" class="scroll-section root-sec grey lighten-5 blog-wrap">
         <div class="padd-tb-60 brand-bg portfolio-top">
-            <div class="portfolio-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h2 class="title text-right">بلاگ</h2>
-                        </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2 class="title text-right">بلاگ</h2>
                     </div>
                 </div>
             </div>
@@ -491,12 +480,6 @@
                 <div class="blog-inner">
                     <div class="col-sm-12 card-box-wrap">
                         <div class="row">
-                            <!--<div class="clearfix section-head blog-text">
-                              <div class="col-sm-12">
-                                <h2 class="title">بلاگ</h2>
-                                <p class="regular-text">در اینجا اگه وقت کنم هفته ای یک پست قرار میدم،موضوعش هم میتونه کاملا بی ربط به وب باشه</p>
-                              </div>
-                            </div>-->
                             <div class="clearfix card-element-wrapper" id="blog-posts">
 
                                 @foreach($posts as $post)
@@ -548,7 +531,7 @@
                             <div class="clearfix section-head contact-text">
                                 <div class="col-sm-12">
                                     <h2 class="title">تماس با ما</h2>
-                                    <p class="subtitle">برای ثبت سفارش میتوانید با شماره ی <a class="FaNumbersFont" href="tel:0935-195-2609">09351952609</a> تماس بگیرید.</p>
+                                    <p class="subtitle">برای ثبت سفارش میتوانید از طریق فرم زیر یا با ایمیل <a class="EnFont" href="mailto:amirrezax@hotmail.com">amirrezax@hotmail.com</a> در تماس باشید.</p>
                                 </div>
                             </div> <!-- contact text end -->
 
@@ -668,11 +651,6 @@
                 'images/portfolio/portfolio2.jpg'],
             frame: 'images/frame.png',
             frameSize: [
-                {
-                    width: 400,
-                    minScreenWidth: 576,
-                    maxScreenWidth: 767
-                },
                 {
                     width: 500,
                     minScreenWidth: 768,
