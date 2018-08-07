@@ -7,11 +7,12 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2">
+                @include('partials.errors')
                 <div class="panel panel-default">
                     <div class="panel-heading text-right">ویرایش پروفایل</div>
                     <div class="panel-body">
                         <img src="{{$user->photo ? asset('upload/profile/'.Auth::user()->photo->path) : asset('images/user.png')}}" class="img-responsive img-circle center-block" style="margin-bottom: 10px; width: 200px;" alt="" id="photo">
-                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/user/profile/edit') }}">
+                        <form class="form-horizontal" role="form" method="POST" action="{{ url('/profile/edit') }}">
                             {{ csrf_field() }}
                             {{ method_field('PATCH') }}
 
@@ -56,6 +57,29 @@
                                     @endif
                                 </div>
                             </div>
+                            <hr>
+                            <p class="text-danger text-center RTL_direction">اگر قصد تغییر رمز عبور را ندارید، فیلد های پایین را خالی بگذارید.</p>
+
+                            <div class="form-group">
+                                <label for="password" class="col-md-4 control-label">پسورد فعلی</label>
+                                <div class="col-md-6">
+                                    <input id="password" type="password" class="form-control EnFont" name="password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="new_password" class="col-md-4 control-label"> رمز عبور جدید</label>
+                                <div class="col-md-6">
+                                    <input id="new_password" type="password" class="form-control EnFont" name="new_password">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password_confirmation" class="col-md-4 control-label"> تکرار رمز عبور جدید</label>
+                                <div class="col-md-6">
+                                    <input id="password_confirmation" type="password" class="form-control EnFont" name="password_confirmation">
+                                </div>
+                            </div>
 
                             <div class="form-group">
                                 <div class="col-md-6 col-md-offset-4">
@@ -66,7 +90,7 @@
                         </form>
                     </div>
                 </div>
-                <!-- Modal -->
+            <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">

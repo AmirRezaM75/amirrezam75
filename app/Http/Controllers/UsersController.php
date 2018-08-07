@@ -64,33 +64,19 @@ class UsersController extends Controller
     public function edit($id)
     {
         $roles = Role::all();
-
         $user = User::findOrFail($id);
         return view('panel.admin.layouts.user.user_edit',compact('user','roles'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+    //Admins Update User's Status and Role
     public function update(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $user->update([
-            'status'=>$request->status,
-            'role_id'=>$request->role_id]);
-        return redirect('admin/users');
+        $input['status'] = $request->status;
+        $input['role_id'] = $request->role_id;
+        $user->update($input);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         $user = User::findOrFail($id);
@@ -102,6 +88,9 @@ class UsersController extends Controller
     public function updateProfile(Request $request)
     {
         $user = Auth::user();
+        $input['name'] = $request->name;
+        $input['username'] = $request->username;
+        $input['email'] = $request->email;
         $this->validate($request, [
             'name' => array(
                 'required',
@@ -119,10 +108,23 @@ class UsersController extends Controller
             )
         ]);
 
+        if (!empty($request->password)){
+            if (password_verify($request->password, $user->password)){
+                if ($request->new_password == $request->password_confirmation) {
+                    $input['password'] = bcrypt($request->new_password);
+                } else {
+                    flash('رمز عبور جدید با هم تطابق ندارد', 'danger');
+                    return redirect('/profile/edit');
+                }
+            } else {
+                flash('رمز عبور کنونی شما اشتباه است', 'danger');
+                return redirect('/profile/edit');
+            }
+        }
 
-        $user->update($request->all());
-        return redirect('/user/profile/edit');
-
+        $user->update($input);
+        flash('پروفایل شما با موفقیت آپدیت شد', 'success');
+        return redirect('/profile/edit');
     }
 
 
@@ -132,8 +134,8 @@ class UsersController extends Controller
         $user = User::findOrFail($request->userId);
         if ($file = $request->file('croppedImage')) {
             $name = "profile_".time()."_".$file->getClientOriginalName().'.png';
-            if ($user->photo_id > 0){
-                $oldPath =public_path().'/upload/profile/'.$user->photo->path;
+            if ($user->photo_id > 0) {
+                $oldPath = public_path().'/upload/profile/'.$user->photo->path;
                 $oldPhoto = Photo::findOrFail($user->photo_id);
                 unlink($oldPath);
                 $file->move('upload/profile',$name);

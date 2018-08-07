@@ -56,11 +56,8 @@ Route::get('/blog/tag/{id}',function ($id){
 
 Route::auth();
 
-Route::get('/home', 'HomeController@index');
-
-
-Route::get('/user/profile/edit','UsersController@show');
-Route::patch('/user/profile/edit','UsersController@updateProfile');
+Route::get('/profile/edit','UsersController@show');
+Route::patch('/profile/edit','UsersController@updateProfile');
 
 ///////////////////////ADMIN/////////////////////
 Route::group(['middleware'=>'role'],function(){
@@ -80,6 +77,8 @@ Route::group(['middleware'=>'role'],function(){
     Route::resource('admin/members','MembersController');
     Route::resource('admin/comments','CommentsController');
     Route::resource('admin/contact','ContactController');
+
+
 });
 
 

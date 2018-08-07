@@ -165,7 +165,7 @@
                                     @if(Auth::check())
                                         <li class="disabled" style="cursor:default;">{{Auth::user()->name}}</li>
                                         @if(Auth::user()->role_id == 1)
-                                        <li><a href="/user/profile/edit">ویرایش پروفایل</a></li>
+                                        <li><a href="{{url('/profile/edit')}}">ویرایش پروفایل</a></li>
                                         @else
                                         <li><a href="/admin">پنل</a></li>
                                         @endif

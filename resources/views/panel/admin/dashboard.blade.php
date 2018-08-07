@@ -64,13 +64,13 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default  main_fonts">
                             <li>
-                                <a href="/#">
+                                <a href="{{url('/profile/edit')}}">
                                     <i class="icon-user"></i> پروفایل من
                                 </a>
                             </li>
                             <li class="divider"> </li>
                             <li>
-                                <a href="/logout">
+                                <a href="{{url('/logout')}}">
                                     <i class="icon-key"></i> خروج </a>
                             </li>
                         </ul>
