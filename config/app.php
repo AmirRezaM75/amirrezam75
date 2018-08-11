@@ -66,6 +66,7 @@ return [
     */
 
     'locale' => 'fa',
+    // laravel file manager supports persian
 
     /*
     |--------------------------------------------------------------------------

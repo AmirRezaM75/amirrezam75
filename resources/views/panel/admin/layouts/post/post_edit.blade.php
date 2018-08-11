@@ -9,7 +9,7 @@
 <div class="page-bar">
     <ul class="page-breadcrumb">
         <li>
-            <a href="{{url('/')}}">Dashboard</a>
+            <a href="{{url('/admin')}}">Dashboard</a>
             <i class="fa fa-circle"></i>
         </li>
         <li>
@@ -105,6 +105,7 @@
                             filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
                             customConfig: '{{asset('panel/assets/js/ckeditor-config.js')}}'
                         };
+                        CKEDITOR.config.removeDialogTabs = 'image:Link;image:Upload';
                         CKEDITOR.replace( 'text',options);
                     </script>
                 </div>

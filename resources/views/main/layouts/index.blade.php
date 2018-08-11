@@ -328,7 +328,7 @@
     <!-- #resume Section end -->
 
     <!-- Portfolio Section start -->
-    <section id="portfolio" class="scroll-section root-sec white portfolio-wrap">
+    <section id="portfolio" class="scroll-section root-sec white portfolio-wrap hidden-xs">
         <div class="padd-tb-60 brand-bg portfolio-top">
             <div class="portfolio-inner">
                 <div class="container">
@@ -339,12 +339,11 @@
                     </div>
                 </div>
             </div>
-            <!-- .container end -->
         </div>
 
         <div class="portfolio-bottom">
             <div class="container">
-                <div class="row hidden-xs">
+                <div class="row">
                     <div class="col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
                         <div class="fc-mac"></div>
                     </div>
