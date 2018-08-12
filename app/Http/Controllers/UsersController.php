@@ -131,19 +131,20 @@ class UsersController extends Controller
 
     public function updatePicture(Request $request)
     {
+        $location = public_path('upload/profile/');
         $user = User::findOrFail($request->userId);
         if ($file = $request->file('croppedImage')) {
             $name = "profile_".time()."_".$file->getClientOriginalName().'.png';
             if ($user->photo_id > 0) {
-                $oldPath = public_path().'/upload/profile/'.$user->photo->path;
+                $oldPath = $location.$user->photo->path;
                 $oldPhoto = Photo::findOrFail($user->photo_id);
                 unlink($oldPath);
-                $file->move('upload/profile',$name);
+                $file->move($location,$name);
                 $oldPhoto->update(['path'=>$name]);
                 $input['photo_id'] = $oldPhoto->id;
                 return $name;
             } else {
-                $file->move('upload/profile',$name);
+                $file->move($location,$name);
                 $photo = Photo::create(['path'=>$name]);
                 $input['photo_id'] = $photo->id;
                 $user->update(["photo_id"=>$photo->id]);
