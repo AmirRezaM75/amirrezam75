@@ -25,11 +25,11 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}" media="screen,projection" />
 
     <link rel="stylesheet" href="{{asset('css/animate.css')}}" media="screen,projection" />
-    <link rel="stylesheet" href="{{asset('libs/sweetalert/sweet-alert.min.css')}}" media="screen,projection" />
+    {{--<link rel="stylesheet" href="{{asset('libs/sweetalert/sweet-alert.min.css')}}" media="screen,projection" />--}}
 
     <link rel="stylesheet" href="{{asset('libs/owl-carousel/owl.carousel.min.css')}}" media="screen,projection" />
     <link rel="stylesheet" href="{{asset('libs/owl-carousel/owl.theme.default.min.css')}}" media="screen,projection" />
-    <link href="{{asset('libs/frame-carousel/jquery.frame-carousel.min.css')}}" rel="stylesheet">
+    {{--<link href="{{asset('libs/frame-carousel/jquery.frame-carousel.min.css')}}" rel="stylesheet">--}}
 
     <link rel="stylesheet" href="{{asset('css/main.css')}}">
     <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
@@ -101,8 +101,8 @@
                     <div class="nav-inner">
                         <nav class="primary-nav">
                             <div class="clearfix nav-wrapper">
-                                <a href="#home" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="{{asset('images/logo.png')}}" alt="">
-                                </a>
+                                {{--<a href="/" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="{{asset('images/logo.png')}}" alt="">--}}
+                                {{--</a>--}}
                                 <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
                                 <ul class="right static-menu">
                                     <li class="search-form-li">
@@ -143,18 +143,11 @@
                                     </li><!-- mini profile end-->
 
 
-                                    <li><a href="#about" data-section="#about" class="menu-smooth-scroll"><i class="fa fa-user fa-fw"></i>درباره من</a>
-                                    </li>
-                                    <li><a href="#resume" data-section="#resume" class="menu-smooth-scroll"><i class="fa fa-file-text fa-fw"></i>رزومه</a>
-                                    </li>
-                                    <li><a href="#portfolio" data-section="#portfolio" class="menu-smooth-scroll"><i class="fa fa-briefcase fa-fw"></i>نمونه کار</a>
-                                    </li>
-                                    <li><a href="#team" data-section="#team" class="menu-smooth-scroll"><i class="fa fa-users fa-fw"></i>تیم</a>
-                                    </li>
-                                    <li><a href="#blog" data-section="#blog" class="menu-smooth-scroll"><i class="fa fa-pencil fa-fw"></i>بلاگ</a>
-                                    </li>
-                                    <li><a href="#contact" data-section="#contact" class="menu-smooth-scroll"><i class="fa fa-paper-plane fa-fw"></i>ارتباط با ما</a>
-                                    </li>
+                                    <li><a href="#contact" data-section="#contact" class="menu-smooth-scroll"><i class="fa fa-paper-plane fa-fw"></i>ارتباط با من</a></li>
+                                    <li><a href="#blog" data-section="#blog" class="menu-smooth-scroll"><i class="fa fa-pencil fa-fw"></i>بلاگ</a></li>
+                                    <li><a href="#team" data-section="#team" class="menu-smooth-scroll"><i class="fa fa-users fa-fw"></i>تیم</a></li>
+                                    <li><a href="#resume" data-section="#resume" class="menu-smooth-scroll"><i class="fa fa-file-text fa-fw"></i>مهارت ها</a></li>
+                                    <li><a href="#about" data-section="#about" class="menu-smooth-scroll"><i class="fa fa-user fa-fw"></i>درباره من</a></li>
                                 </ul>
                                 <ul id="static-dropdown" class="inline-menu submenu-ul dropdown-content text-right">
                                     @if(!Auth::check())
@@ -223,18 +216,19 @@
             <div class="row">
                 <div class="clearfix about-inner">
 
+
                     <div class="col-sm-12 col-md-4">
                         <div class="person-about">
                             <h3 class="about-subtitle">درباره ی من</h3>
                             <p>{{$about->text}}</p>
-                            <a class="waves-effect waves-light btn-large brand-bg white-text"><i class="mdi-content-archive left"></i> دانلود رزومه </a>
+                            <a href="https://atbox.io/amirrezam75/resume" target="_blank" class="waves-effect waves-light btn-large brand-bg white-text"><i class="mdi-content-archive left"></i>دانلود رزومه </a>
                         </div>
                     </div>
                     <!-- about me description -->
 
                     <div class="col-sm-6 col-md-4">
                         <div class="person-img wow fadeIn">
-                            <img class="z-depth-1" src="{{asset('images/picture_profile.jpg')}}" alt="picture_profile" title="Amir Reza Mehrbakhsh">
+                            <img class="z-depth-1" itemprop="image" src="{{asset('images/picture_profile.jpg')}}" alt="photo of Amir Reza Mehrbakhsh" title="Amir Reza Mehrbakhsh">
                         </div>
                     </div>
                     <!-- about me image -->
@@ -242,31 +236,11 @@
                     <div class="col-sm-6 col-md-4">
                         <div class="person-info">
                             <h3 class="about-subtitle">اطلاعات شخصی</h3>
-                            <h5><span>نام :</span> {{$about->name}}</h5>
+                            <h5><span>نام :</span> <span itemprop="name">{{$about->name}}</span></h5>
                             <h5><span>سن :</span> {{date('Y') - $about->birthday}} </h5>
-                            <h5><span>شغل :</span> {{$about->job}} </h5>
-                            <h5><span>ایمیل :</span> <span class="EnFont">{{$about->email}}</span></h5>
-                            <h5><span>آدرس :</span> {{$about->address}}</h5>
-                        </div>
-
-                        <div class="about-social">
-                            <ul>
-                                <li>
-                                    <a href="#" class="btn-floating waves-effect waves-light white"><i class="fa fa-facebook"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="btn-floating waves-effect waves-light white"><i class="fa fa-telegram"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="btn-floating waves-effect waves-light white"><i class="fa fa-google-plus"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="btn-floating waves-effect waves-light white"><i class="fa fa-linkedin"></i></a>
-                                </li>
-                                <li>
-                                    <a href="#" class="btn-floating waves-effect waves-light white"><i class="fa fa-pinterest"></i></a>
-                                </li>
-                            </ul>
+                            <h5><span>شغل :</span> <span itemprop="jobTitle">{{$about->job}}</span> </h5>
+                            <h5><span>ایمیل :</span> <a href="mailto:{{$about->email}}" class="EnFont">{{$about->email}}</a> </h5>
+                            <h5><span>تلفن تماس :</span> <a href="tel:09351952609" class="EnFont">09351952609</a> </h5>
                         </div>
                     </div>
                     <!-- about me info -->
@@ -327,32 +301,6 @@
     </section>
     <!-- #resume Section end -->
 
-    <!-- Portfolio Section start -->
-    <section id="portfolio" class="scroll-section root-sec white portfolio-wrap hidden-xs">
-        <div class="padd-tb-60 brand-bg portfolio-top">
-            <div class="portfolio-inner">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <h2 class="title text-right">نمونه کار</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="portfolio-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 col-lg-10 col-lg-offset-1">
-                        <div class="fc-mac"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- #portfolio Section end -->
-
     <!-- Team Section start -->
     <section id="team" class="scroll-section root-sec brand-bg padd-tb-120 team-wrap">
         <div class="container">
@@ -409,114 +357,52 @@
     </section>
     <!-- #team Section end -->
 
-    <!-- Funfacts Section start -->
-    <section id="funfacts" class="root-sec grey lighten-5 funfact-wrap">
+    <!-- #blog Section start -->
+    <section id="blog" class="scroll-section root-sec grey lighten-5 blog-wrap">
         <div class="sec-inner padd-tb-120">
             <div class="container">
                 <div class="row">
-                    <div class="funfact-inner">
-                        <div class="col-sm-4 funfact-box">
-                            <div class="center-align card-panel white">
-                                <div class="feature-box-outer">
-                                    <div class="funfact-box-inner">
-                                        <div class="clearfix ">
-                                            <i class="mdi-editor-insert-emoticon"></i>
-                                            <span class="num countNumb">0</span>
-                                        </div>
-                                        <div class="context">مشتریان راضی</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- ./single fun fact box -->
-                        <div class="col-sm-4 funfact-box">
-                            <div class="center-align card-panel white">
-                                <div class="feature-box-outer">
-                                    <div class="funfact-box-inner">
-                                        <div class="clearfix ">
-                                            <i class="mdi-action-wallet-travel"></i>
-                                            <span class="num countNumb">0</span>
-                                        </div>
-                                        <div class="context">پروژه های تکمیل شده</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- ./single fun fact box -->
-                        <div class="col-sm-4 funfact-box">
-                            <div class="center-align card-panel white">
-                                <div class="feature-box-outer">
-                                    <div class="funfact-box-inner">
-                                        <div class="clearfix ">
-                                            <i class="mdi-action-wallet-giftcard"></i>
-                                            <span class="num countNumb">0</span>
-                                        </div>
-                                        <div class="context">جوایز</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> <!-- ./single fun fact box -->
-                    </div>
-                </div>
+                    <div class="blog-inner">
+                        <div class="col-sm-12 card-box-wrap">
+                            <div class="row">
+                                <div class="clearfix card-element-wrapper" id="blog-posts">
 
-            </div>  <!-- .container end -->
-        </div>
-    </section>
-    <!-- #funfacts Section end -->
-
-    <!-- Blog Section end -->
-    <section id="blog" class="scroll-section root-sec grey lighten-5 blog-wrap">
-        <div class="padd-tb-60 brand-bg portfolio-top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h2 class="title text-right">بلاگ</h2>
-                    </div>
-                </div>
-            </div>
-            <!-- .container end -->
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="blog-inner">
-                    <div class="col-sm-12 card-box-wrap">
-                        <div class="row">
-                            <div class="clearfix card-element-wrapper" id="blog-posts">
-
-                                @foreach($posts as $post)
-                                    <article class="col-sm-6 col-md-4 single-card-box single-post">
-                                        <div class="card wow fadeInUpSmall" data-wow-duration=".7s">
-                                            <div class="card-image">
-                                                <div class="card-img-wrap">
-                                                    <div class="blog-post-thumb waves-effect waves-block waves-light">
-                                                        <a href="{{route('posts.show',$post->id)}}"><img class="activator" src="{{$post->photo ? asset('upload/post/'.$post->photo->path) : asset('images/single-blog.png')}}" alt="">
-                                                        </a>
-                                                    </div>
-                                                    <div class="post-body">
-                                                        <a href="{{route('posts.show',$post->id)}}" class="post-title-link brand-text"><h2 class="post-title">{{$post->title}}</h2></a>
-                                                        <p class="post-content text-justify RTL_direction"> {{$post->description}} </p>
+                                    @foreach($posts as $post)
+                                        <article class="col-sm-6 col-md-4 single-card-box single-post">
+                                            <div class="card wow fadeInUpSmall" data-wow-duration=".7s">
+                                                <div class="card-image">
+                                                    <div class="card-img-wrap">
+                                                        <div class="blog-post-thumb waves-effect waves-block waves-light">
+                                                            <a href="{{route('posts.show',$post->slug)}}"><img class="activator" src="{{$post->photo ? asset('upload/post/'.$post->photo->path) : asset('images/single-blog.png')}}" alt=""></a>
+                                                        </div>
+                                                        <div class="post-body">
+                                                            <a href="{{route('posts.show',$post->slug)}}" class="post-title-link brand-text"><h2 class="post-title">{{$post->title}}</h2></a>
+                                                            <p class="post-content text-justify RTL_direction"> {{$post->description}} </p>
+                                                        </div>
                                                     </div>
                                                 </div>
+                                                <div class="clearfix card-content">
+                                                    <a href="#" class="left js-favorite" title="تعداد لایک ها"><i class="mdi-action-favorite"></i><span class="numb EnFont">{{$post->likes}}</span></a>
+                                                    <a href="{{route('posts.show',$post->slug)}}" class="brand-text right waves-effect">ادامه مطلب</a>
+                                                </div>
                                             </div>
-                                            <div class="clearfix card-content">
-                                                <a href="#" class="left js-favorite" title="Love this"><i class="mdi-action-favorite"></i><span class="numb EnFont">{{$post->likes}}</span></a>
-                                                <a href="{{route('posts.show',$post->id)}}" class="brand-text right waves-effect">ادامه مطلب</a>
-                                            </div>
-                                        </div>
-                                    </article> <!-- ./single blog post end -->
-                                @endforeach
+                                        </article> <!-- ./single blog post end -->
+                                    @endforeach
 
 
 
-                            </div>
-                            <div class="clearfix left-align">
-                                <div class="col-sm-12">
-                                    <a href="/blog" class="waves-effect waves-light btn-large load-more">مشاهده بیشتر</a>
+                                </div>
+                                <div class="clearfix left-align">
+                                    <div class="col-sm-12">
+                                        <a href="/blog" class="waves-effect waves-light btn-large load-more">مشاهده بیشتر</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div> <!-- ./container -->
+            </div> <!-- ./container -->
+        </div>
     </section>
     <!-- #blog Section end -->
 
@@ -529,8 +415,7 @@
                         <div class="row">
                             <div class="clearfix section-head contact-text">
                                 <div class="col-sm-12">
-                                    <h2 class="title">تماس با ما</h2>
-                                    <p class="subtitle">برای ثبت سفارش میتوانید از طریق فرم زیر یا با ایمیل <a class="EnFont" href="mailto:amirrezax@hotmail.com">amirrezax@hotmail.com</a> در تماس باشید.</p>
+                                    <h2 class="title">تماس با من</h2>
                                 </div>
                             </div> <!-- contact text end -->
 
@@ -598,21 +483,15 @@
                 <div class="col-sm-12">
                     <div class="clearfix footer-inner">
                         <ul class="left social-icons">
-                            <li><a href="#" class="tooltips tooltipped facebook" data-position="top" data-delay="50" data-tooltip="Facebook"><i class="fa fa-facebook"></i></a>
+                            <li><a href="#" class="tooltips tooltipped facebook" data-position="top" data-delay="50" data-tooltip="Instagram"><i class="fa fa-instagram"></i></a>
                             </li>
-                            <li><a href="#" class="tooltips tooltipped linkedin" data-position="top" data-delay="50" data-tooltip="Linkdin"><i class="fa fa-linkedin"></i></a>
+                            <li><a href="#" class="tooltips tooltipped linkedin" data-position="top" data-delay="50" data-tooltip="Telegram"><i class="fa fa-telegram"></i></a>
                             </li>
                             <li><a href="#" class="tooltips tooltipped twitter" data-position="top" data-delay="50" data-tooltip="Twitter"><i class="fa fa-twitter"></i></a>
                             </li>
-                            <li><a href="#" class="tooltips tooltipped google-plus" data-position="top" data-delay="50" data-tooltip="Google Plus"><i class="fa fa-google-plus"></i></a>
-                            </li>
-                            <li><a href="#" class="tooltips tooltipped dribbble" data-position="top" data-delay="50" data-tooltip="Dribbble"><i class="fa fa-dribbble"></i></a>
-                            </li>
-                            <li><a href="#" class="tooltips tooltipped behance" data-position="top" data-delay="50" data-tooltip="Behance"><i class="fa fa-behance"></i></a>
-                            </li>
                         </ul> <!-- ./social icons end -->
                         <div class="right copyright">
-                            <p>T1-Group <span class="EnFont">&copy;</span> All Rights Reserved</p>
+                            <p>کلیه ی حقوق این وب سایت متعلق به امیررضا مهربخش است <span class="EnFont">&copy;</span> </p>
                         </div>
                     </div>
                 </div>
@@ -627,45 +506,19 @@
 
 <!-- JavaScripts -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="{{asset('js/jquery.easing.1.3.min.js')}}"></script>
+{{--<script src="{{asset('js/jquery.easing.1.3.min.js')}}"></script>--}}
 <script src="{{asset('js/detectmobilebrowser.min.js')}}"></script>
-<script src="{{asset('js/isotope.pkgd.min.js')}}"></script>
-<script src="{{asset('js/wow.min.js')}}"></script>
+{{--<script src="{{asset('js/isotope.pkgd.min.js')}}"></script>--}}
+{{--<script src="{{asset('js/wow.min.js')}}"></script>--}}
 <script src="{{asset('js/waypoints.min.js')}}"></script>
 <script src="{{asset('js/jquery.counterup.min.js')}}"></script>
-<script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>
+{{--<script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>--}}
 <script src="{{asset('libs/owl-carousel/owl.carousel.min.js')}}"></script>
-<script src="{{asset('libs/frame-carousel/jquery.frame-carousel.min.js')}}"></script>
+{{--<script src="{{asset('libs/frame-carousel/jquery.frame-carousel.min.js')}}"></script>--}}
 <script src="{{asset('libs/materialize/js/materialize.min.js')}}"></script>
-<script src="{{asset('libs/jwplayer/jwplayer.min.js')}}"></script>
-<script src="{{asset('libs/sweetalert/sweet-alert.min.js')}}"></script>
+{{--<script src="{{asset('libs/jwplayer/jwplayer.min.js')}}"></script>--}}
+{{--<script src="{{asset('libs/sweetalert/sweet-alert.min.js')}}"></script>--}}
 <script src="{{asset('js/common.js')}}"></script>
 <script src="{{asset('js/main.js')}}"></script>
-
-<script type="text/javascript">
-    $(function(){
-        $('.fc-mac').frameCarousel({
-            images: [
-                'images/portfolio/portfolio1.jpg',
-                'images/portfolio/portfolio2.jpg'],
-            frame: 'images/frame.png',
-            frameSize: [
-                {
-                    width: 500,
-                    minScreenWidth: 768,
-                    maxScreenWidth: 991
-                },
-                {
-                    width: 620,
-                    minScreenWidth: 992,
-                    maxScreenWidth: 1199
-                },
-                {
-                    width: 800,
-                    minScreenWidth: 1200
-                }]
-        });
-    });
-</script>
 </body>
 </html>

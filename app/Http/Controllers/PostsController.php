@@ -70,9 +70,8 @@ class PostsController extends Controller
         }
     }
 
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::findOrFail($id);
         $comments = $post->comments()->whereCommentId(0)->get();
         $commentsCount = count($post->comments);
         $recentPosts = Post::orderBy('created_at','desc')->take(5)->get();

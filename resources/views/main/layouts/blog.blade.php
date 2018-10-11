@@ -162,11 +162,11 @@
                                             <div class="card-image">
                                                 <div class="card-img-wrap">
                                                     <div class="blog-post-thumb waves-effect waves-block waves-light">
-                                                        <a href="{{route('posts.show',$post->id)}}"><img class="activator" src="{{$post->photo ? asset('upload/post/'.$post->photo->path) : asset('images/single-blog.png')}}" alt="">
+                                                        <a href="{{route('posts.show',$post->slug)}}"><img class="activator" src="{{$post->photo ? asset('upload/post/'.$post->photo->path) : asset('images/single-blog.png')}}" alt="">
                                                         </a>
                                                     </div>
                                                     <div class="post-body">
-                                                        <a href="{{route('posts.show',$post->id)}}" class="post-title-link brand-text"><h2 class="post-title">{{$post->title}}</h2></a>
+                                                        <a href="{{route('posts.show',$post->slug)}}" class="post-title-link brand-text"><h2 class="post-title">{{$post->title}}</h2></a>
                                                         <p class="post-content text-justify RTL_direction"> {{$post->description}} </p>
                                                     </div>
                                                 </div>
@@ -178,7 +178,7 @@
                                                     <a href="#" class="left post-like EnFont " title="برای لایک کردن باید وارد شوید"><i class="mdi-action-favorite"></i> <span class="numb">{{$post->likes}}</span></a>
                                                 @endif
                                                 {{--<a href="#" class="left js-favorite" title="Love this"><i class="mdi-action-favorite"></i><span class="numb EnFont">{{$post->likes}}</span></a>--}}
-                                                <a href="{{route('posts.show',$post->id)}}" class="brand-text right waves-effect">ادامه مطلب</a>
+                                                <a href="{{route('posts.show',$post->slug)}}" class="brand-text right waves-effect">ادامه مطلب</a>
                                             </div>
                                         </div>
                                     </article> <!-- ./single blog post end -->

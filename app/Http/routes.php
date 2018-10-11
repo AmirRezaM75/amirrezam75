@@ -34,7 +34,7 @@ Route::get('/blog',function (){
     return view('main.layouts.blog',compact('posts','categories'));
 });
 
-Route::get('blog/post/{id}',['as'=>'posts.show', 'uses'=>'PostsController@show']);
+Route::get('blog/post/{post}',['as'=>'posts.show', 'uses'=>'PostsController@show']);
 
 Route::get('/blog/category/{id}',function ($id){
     $posts = Post::whereCategoryId($id)->orderBy('created_at','desc')->get();

@@ -221,7 +221,7 @@ html.login_page body {
   color: #ffffff;
 }
 
-.login_page input, textarea {
+.login_page input, .login_page textarea {
   font-size: 22px;
   display: block;
   width: 100%;
@@ -240,7 +240,7 @@ html.login_page body {
   transition: border-color .25s ease, box-shadow .25s ease;
   transition: border-color .25s ease, box-shadow .25s ease, -webkit-box-shadow .25s ease;
 }
-.login_page input:focus, textarea:focus {
+.login_page input:focus, .login_page textarea:focus {
   outline: 0;
   border-color: #1ab188;
 }
