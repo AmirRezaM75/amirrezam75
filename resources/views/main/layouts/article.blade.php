@@ -17,18 +17,9 @@
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" >
 
     <!-- Stylesheets-->
-    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
-    <link rel="stylesheet" href="{{asset('fonts/font-awesome/css/font-awesome.min.css')}}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('libs/materialize/css/materialize.min.css')}}" media="screen,projection" />
-    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}" media="screen,projection"/>
-    <link rel="stylesheet" href="{{asset('libs/owl-carousel/owl.carousel.min.css')}}" media="screen,projection" />
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
-    <link rel="stylesheet" href="{{asset('css/blog.css')}}">
-    <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
-
-    <!-- Choose your default colors -->
-    <link rel="stylesheet" href="{{asset('css/colors/color1.css')}}">
+    <link rel="stylesheet" href="{{asset('css/article.css')}}">
 
     <!--[if lt IE 9]>
     <script src="{{asset('js/html5shiv.js')}}"></script>
@@ -50,82 +41,7 @@
 
 <div id="app">
     <!-- header navigation start -->
-    <header id="navigation" class="root-sec white nav">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="nav-inner">
-                        <nav class="primary-nav">
-                            <div class="clearfix nav-wrapper">
-                                <a href="/" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="{{asset('images/logo.png')}}" alt="">
-                                </a>
-                                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-                                <ul class="right static-menu">
-                                    <li class="search-form-li">
-                                        <a id="initSearchIcon" class=""><i class="mdi-action-search"></i></a>
-                                        <div class="search-form-wrap hide">
-                                            <form action="#" class="">
-                                                <input type="search" class="search">
-                                                <button type="submit"><i class="mdi-action-search"></i></button>
-                                            </form>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-button blog-submenu-init" href="#!" data-activates="dropdown1">
-                                            <i class="mdi-navigation-more-vert right"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <ul class="inline-menu side-nav" id="mobile-demo">
-
-                                    <!-- Mini Profile // only visible in Tab and Mobile -->
-                                    <li class="mobile-profile">
-                                        <div class="profile-inner">
-                                            <div class="pp-container">
-                                                <img src="{{asset('images/picture_profile_2.jpg')}}" class="center-block" alt="">
-                                            </div>
-                                            <h3>امیررضا مهربخش</h3>
-                                            <h5>طراح سایت</h5>
-                                        </div>
-                                    </li><!-- mini profile end-->
-                                    <li><a href="{{url('/#contact')}}"><i class="fa fa-home fa-fw"></i>تماس با ما</a></li>
-                                    <li><a href="{{url('/#about')}}"><i class="fa fa-home fa-fw"></i>درباره من</a></li>
-                                    <li>
-                                        <a class="dropdown-button blog-submenu-init" href="#!" data-activates="dropdown2"><i class="fa fa-home fa-fw"></i>دسته بندی</a>
-                                    </li>
-
-                                    <li><a href="{{url('/blog')}}"><i class="fa fa-home fa-fw"></i>بلاگ</a></li>
-                                    <li><a href="{{url('/')}}"><i class="fa fa-home fa-fw"></i>خانه</a></li>
-
-                                </ul>
-                                <ul id="dropdown1" class="inline-menu submenu-ul dropdown-content">
-                                    @if(!Auth::check())
-                                        <li><a href="/register">ثبت نام</a></li>
-                                        <li><a href="/login">ورود</a></li>
-                                    @endif
-
-                                    @if(Auth::check())
-                                        <li><a href="/admin">پنل</a></li>
-                                        <li><a href="/logout">خروج</a></li>
-                                    @endif
-
-                                    <li><a href="#/">سایت تیم</a></li>
-                                </ul>
-                                <ul id="dropdown2" class="inline-menu submenu-ul dropdown-content">
-                                    @foreach($categories as $category)
-                                        <li>
-                                            <a class="text-right RTL_direction" href="{{url('/blog/category',$category->id)}}"><i></i>{{$category->name}}</a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- .container end -->
-    </header>
+    @include('partials.header')
     <!-- #header  navigation end -->
 
     <!-- Banner start -->
@@ -136,13 +52,10 @@
                     <div class="col-md-12">
                         <h2 class="title RTL_direction text-right">{{$post->title}}</h2>
                         <ul class="clearfix blog-post-meta pull-right">
-                            <li>By <a href="#" class="EnFont">{{$post->user->username}}</a>
-                            </li>
+                            <li>By <a href="#" class="EnFont">{{$post->user->username}}</a></li>
                             <li>{{$post->created_at}}</li>
-                            <li><a href="#comments" data-section="#comments" class="menu-smooth-scroll EnFont">{{$commentsCount}} Comments</a>
-                            </li>
-                            <li><a href="{{url('/blog/category',$post->category->id)}}">{{$post->category->name}}</a>
-                            </li>
+                            <li><a href="#comments" data-section="#comments" class="menu-smooth-scroll EnFont">{{$commentsCount}} Comments</a></li>
+                            <li><a href="{{url('/blog/category',$post->category->id)}}">{{$post->category->name}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -156,40 +69,6 @@
             <div class="row">
                 <div class="clearfix all-blog-post blog-inner with-sidebar">
                     <!-- Sidebar start-->
-                    <div class="col-sm-4">
-                        <div class="primary-sidebar">
-                            <aside class="single-widget RTL_direction text-right">
-                                <h2 class="widget-title">پست های اخیر</h2>
-                                <ul>
-                                    @foreach($recentPosts as $recentPost)
-                                        <li>
-                                            <a href="">{{$recentPost->title}}</a>
-                                            <span class="text-left LTR_direction">{{$recentPost->created_at->diffForHumans()}}</span>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </aside>
-                            <aside class="single-widget text-right RTL_direction">
-                                <h2 class="widget-title">دسته بندی</h2>
-                                <ul>
-                                    @foreach($categories as $category)
-                                        <li><a href="{{url('blog/category',$category->id)}}">{{$category->name}}</a></li>
-                                    @endforeach
-                                </ul>
-                            </aside>
-                            @if(count($post->tags)>0)
-                                <aside class="single-widget">
-                                    <h2 class="widget-title text-right">تگ ها</h2>
-                                    <div class="widget-text text-right">
-                                        @foreach($post->tags as $tag)
-                                            <a href="{{url('/blog/tag',$tag->id)}}" class="tags">{{$tag->name}}</a>
-                                        @endforeach
-                                    </div>
-                                </aside>
-                            @endif
-                        </div>
-                    </div> <!-- ./sidebar end-->
-                    <!-- post container start-->
                     <div class="col-sm-8">
                         <article class="single-post-page">
                             <div class="thumb-wrap">
@@ -206,17 +85,12 @@
                                     <a href="#" class="left post-like EnFont " title="برای لایک کردن باید وارد شوید"><i class="mdi-action-favorite"></i> <span class="numb">{{$post->likes}}</span></a>
                                 @endif
                                 <ul class="clearfix right share-post">
-                                    <li><a href="#"><i class="fa fa-facebook"></i> <span>SHARE</span></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-twitter"></i> <span>TWEET</span></a>
-                                    </li>
-                                    <li><a href="#"><i class="fa fa-google-plus"></i> <span>PLUS</span></a>
-                                    </li>
+                                    <li><a href="#"><i class="fa fa-telegram"></i> <span>تلگرام</span></a></li>
                                 </ul>
                             </div>
 
                             <div class="comment-reply-section" id="comments">
-                                <h2 class="com-title EnFont">{{$commentsCount}} Comments</h2>
+                                <h2 class="com-title text-right">تا کنون {{$commentsCount}} نظر به ثبت رسیده است</h2>
                                 <div class="comment-list-wrapper">
                                     <ul class="comment-list">
                                         @foreach($comments as $comment)
@@ -271,7 +145,7 @@
                                 </div>
                             </div>
 
-                                @if(Auth::check())
+                            @if(Auth::check())
                                 <div class="contact-form  comment-reply-form">
                                     {!! Form::open(['method'=>'POST', 'action'=>'CommentsController@createComment','class'=>'cform-wrapper']) !!}
                                     <input type="hidden" name="post_id" value="{{$post->id}}">
@@ -285,46 +159,56 @@
                                     </div>
                                     {!! Form::close() !!}
                                 </div>
-                                @else
+                            @else
                                 <h2 class="com-title RTL_direction">برای ثبت نظر باید <a href="/login" style="margin-left: 0px;padding-left: 0px;border-left: 0 solid #dddddd;">وارد</a> حساب کاربری خود شوید. اگر تا کنون ثبت نام نکردید
                                     <a href="/register" style="margin-left: 0px;padding-left: 0px;border-left: 0 solid #dddddd;">اینجا</a> کلیک کنید</h2>
-                                @endif
+                            @endif
 
                         </article>
                     </div> <!-- ./post container end-->
+                    <div class="col-sm-4">
+                        <div class="primary-sidebar">
+                            <aside class="single-widget RTL_direction text-right">
+                                <h2 class="widget-title">پست های اخیر</h2>
+                                <ul>
+                                    @foreach($recentPosts as $recentPost)
+                                        <li>
+                                            <a href="">{{$recentPost->title}}</a>
+                                            <span class="text-left LTR_direction">{{$recentPost->created_at->format('Y/m/d')}}</span>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </aside>
+                            <aside class="single-widget text-right RTL_direction">
+                                <h2 class="widget-title">دسته بندی</h2>
+                                <ul>
+                                    @foreach($categories as $category)
+                                        <li><a href="{{url('blog/category',$category->id)}}">{{$category->name}}</a></li>
+                                    @endforeach
+                                </ul>
+                            </aside>
+                            @if(count($post->tags)>0)
+                                <aside class="single-widget">
+                                    <h2 class="widget-title text-right">تگ ها</h2>
+                                    <div class="widget-text text-right">
+                                        @foreach($post->tags as $tag)
+                                            <a href="{{url('/blog/tag',$tag->id)}}" class="tags">{{$tag->name}}</a>
+                                        @endforeach
+                                    </div>
+                                </aside>
+                            @endif
+                        </div>
+                    </div> <!-- ./sidebar end-->
+                    <!-- post container start-->
+
                 </div>
             </div>
         </div> <!-- ./container end-->
     </section>  <!-- ./Blog Post Container end-->
 
     <!-- Footer Start -->
-    <footer id="footer" class="root-sec white root-sec footer-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="clearfix footer-inner">
-                        <ul class="media-float-none social-icons">
-                            <li><a href="#" class="tooltips tooltipped facebook" data-position="top" data-delay="50" data-tooltip="Facebook"><i class="fa fa-facebook"></i></a>
-                            </li>
-                            <li><a href="#" class="tooltips tooltipped linkedin" data-position="top" data-delay="50" data-tooltip="Linkdin"><i class="fa fa-linkedin"></i></a>
-                            </li>
-                            <li><a href="#" class="tooltips tooltipped twitter" data-position="top" data-delay="50" data-tooltip="Twitter"><i class="fa fa-twitter"></i></a>
-                            </li>
-                            <li><a href="#" class="tooltips tooltipped google-plus" data-position="top" data-delay="50" data-tooltip="Google Plus"><i class="fa fa-google-plus"></i></a>
-                            </li>
-                            <li><a href="#" class="tooltips tooltipped dribbble" data-position="top" data-delay="50" data-tooltip="Dribbble"><i class="fa fa-dribbble"></i></a>
-                            </li>
-                            <li><a href="#" class="tooltips tooltipped behance" data-position="top" data-delay="50" data-tooltip="Behance"><i class="fa fa-behance"></i></a>
-                            </li>
-                        </ul>
-                        <div class="media-float-none copyright EnFont">
-                            <p>MaterialX &copy; All Rights Reserved</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer> <!-- Footer End -->
+    @include('partials.footer')
+    <!-- Footer End -->
 </div> <!--#app end -->
 
 <script>
@@ -332,12 +216,8 @@
     var urlLike = '{{route('like')}}';
 </script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>
-<script src="{{asset('libs/owl-carousel/owl.carousel.min.js')}}"></script>
 <script src="{{asset('libs/materialize/js/materialize.min.js')}}"></script>
-<script src="{{asset('libs/jwplayer/jwplayer.min.js')}}"></script>
-<script src="{{asset('js/common.js')}}"></script>
-<script src="{{asset('js/myScript.js')}}"></script>
+<script src="{{asset('js/article.js')}}"></script>
 </body>
 
 </html>

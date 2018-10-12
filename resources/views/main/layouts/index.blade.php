@@ -46,37 +46,9 @@
 
 
 <!-- start option panel -->
-<div id="switch">
-    <div class="content-switcher">
-        <p class="brand-text">Color Options:</p>
-        <ul class="header">
-            <li><a href="#" onclick="setActiveStyleSheet('color1'); return false;" class="button color switch" style="background-color:#00bcd4"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color2'); return false;" class="button color switch" style="background-color:#ff4081"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color3'); return false;" class="button color switch" style="background-color:#C043D5"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color4'); return false;" class="button color switch" style="background-color:#73D077"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color5'); return false;" class="button color switch" style="background-color:#FE7448"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color6'); return false;" class="button color switch" style="background-color:#1ABBAC"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color7'); return false;" class="button color switch" style="background-color:#EAB82E"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color8'); return false;" class="button color switch" style="background-color:#799CAC"></a></li>
-        </ul>
-        <p class="brand-text">Menu Options:</p>
-        <div class="menu-select" title="The menu will display in all devices">
-            <input type="radio" id="menu1" name="intelligent-menu">
-            <label for="menu1">Fixed</label>
-        </div>
-        <div class="menu-select" title="The menu will display or hide in all devices depending on scroll">
-            <input type="radio" id="menu2" name="intelligent-menu" checked="checked">
-            <label for="menu2">Intelligent ( Auto Hide )</label>
-        </div>
-        <div class="menu-select" title="Fixed menu will apply in non-mobile devices and Intelligent menu will apply in mobile devices">
-            <input type="radio" id="menu3" name="intelligent-menu">
-            <label for="menu3">Mobile Intelligent</label>
-        </div>
-        <div id="hide">
-            <i class="fa fa-times"></i>
-        </div>
-    </div>
-</div>
+@include('partials.option-panel')
+<!-- end option panel -->
+
 <div id="show" class="btn-floating waves-effect waves-light btn-large brand-text">
     <i class="fa fa-cog"></i>
 </div>
@@ -94,89 +66,8 @@
 <!-- Main Container -->
 <main id="app" class="main-section">
     <!-- header navigation start -->
-    <header id="navigation" class="root-sec white nav">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="nav-inner">
-                        <nav class="primary-nav">
-                            <div class="clearfix nav-wrapper">
-                                {{--<a href="/" class="left brand-logo menu-smooth-scroll" data-section="#home"><img src="{{asset('images/logo.png')}}" alt="">--}}
-                                {{--</a>--}}
-                                <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-                                <ul class="right static-menu">
-                                    <li class="search-form-li">
-                                        <a id="initSearchIcon" class=""><i class="mdi-action-search"></i> </a>
-                                        <div class="search-form-wrap hide">
-                                            <form action="#" class="">
-                                                <input type="search" class="search">
-                                                <button type="submit"><i class="mdi-action-search"></i>
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </li>
-                                    @if(Auth::check())
-                                        <li>
-                                            <a class="dropdown-button blog-submenu-init" href="#!" data-activates="static-dropdown" style="padding: 0;">
-                                                <img src="{{Auth::user()->photo ? asset('upload/profile/'.Auth::user()->photo->path) : asset('images/user.png')}}" class="img-circle margin-top-20" height="40" alt="">
-                                            </a>
-                                        </li>
-                                    @else
-                                        <li>
-                                            <a class="dropdown-button blog-submenu-init" href="#!" data-activates="static-dropdown">
-                                                <i class="mdi-navigation-more-vert right"></i>
-                                            </a>
-                                        </li>
-                                    @endif
-                                </ul>
-                                <ul class="inline-menu side-nav" id="mobile-demo">
-
-                                    <!-- Mini Profile // only visible in Tab and Mobile -->
-                                    <li class="mobile-profile">
-                                        <div class="profile-inner">
-                                            <div class="pp-container">
-                                                <img src="{{asset('images/picture_profile.jpg')}}" class="center-block" alt="">
-                                            </div>
-                                            <h3>امیررضا مهربخش</h3>
-                                            <h5>طراح سایت</h5>
-                                        </div>
-                                    </li><!-- mini profile end-->
-
-
-                                    <li><a href="#contact" data-section="#contact" class="menu-smooth-scroll"><i class="fa fa-paper-plane fa-fw"></i>ارتباط با من</a></li>
-                                    <li><a href="#blog" data-section="#blog" class="menu-smooth-scroll"><i class="fa fa-pencil fa-fw"></i>بلاگ</a></li>
-                                    <li><a href="#team" data-section="#team" class="menu-smooth-scroll"><i class="fa fa-users fa-fw"></i>تیم</a></li>
-                                    <li><a href="#resume" data-section="#resume" class="menu-smooth-scroll"><i class="fa fa-file-text fa-fw"></i>مهارت ها</a></li>
-                                    <li><a href="#about" data-section="#about" class="menu-smooth-scroll"><i class="fa fa-user fa-fw"></i>درباره من</a></li>
-                                </ul>
-                                <ul id="static-dropdown" class="inline-menu submenu-ul dropdown-content text-right">
-                                    @if(!Auth::check())
-                                        <li><a href="/register">ثبت نام</a></li>
-                                        <li><a href="/login">ورود</a></li>
-                                    @endif
-
-                                    @if(Auth::check())
-                                        <li class="disabled" style="cursor:default;">{{Auth::user()->name}}</li>
-                                        @if(Auth::user()->role_id == 1)
-                                        <li><a href="{{url('/profile/edit')}}">ویرایش پروفایل</a></li>
-                                        @else
-                                        <li><a href="/admin">پنل</a></li>
-                                        @endif
-                                        <li><a href="/logout">خروج</a></li>
-                                    @endif
-
-                                    {{--<li><a href="#/">سایت تیم</a></li>--}}
-                                </ul>
-
-                            </div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- .container end -->
-    </header>
-    <!-- #header  navigation end -->
+    @include('partials.header')
+    <!-- #header navigation end -->
 
     <!-- Home Section start -->
     <section id="home" class="scroll-section root-sec grey lighten-5 home-wrap">
@@ -477,27 +368,7 @@
     <!-- #contact Section end -->
 
     <!-- Footer Section end -->
-    <footer id="footer" class="root-sec white root-sec footer-wrap">
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                    <div class="clearfix footer-inner">
-                        <ul class="left social-icons">
-                            <li><a href="#" class="tooltips tooltipped facebook" data-position="top" data-delay="50" data-tooltip="Instagram"><i class="fa fa-instagram"></i></a>
-                            </li>
-                            <li><a href="#" class="tooltips tooltipped linkedin" data-position="top" data-delay="50" data-tooltip="Telegram"><i class="fa fa-telegram"></i></a>
-                            </li>
-                            <li><a href="#" class="tooltips tooltipped twitter" data-position="top" data-delay="50" data-tooltip="Twitter"><i class="fa fa-twitter"></i></a>
-                            </li>
-                        </ul> <!-- ./social icons end -->
-                        <div class="right copyright">
-                            <p>کلیه ی حقوق این وب سایت متعلق به امیررضا مهربخش است <span class="EnFont">&copy;</span> </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> <!-- ./container end-->
-    </footer>
+    @include('partials.footer')
     <!-- #footer end -->
 
 </main>
