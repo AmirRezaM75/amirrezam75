@@ -10,9 +10,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>{{$post->title}}</title>
-    <meta name="description" content="">
+    <meta name="description" content="{{$post->description}}">
+    <meta property="og:locale" content="fa_IR">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="{{$post->title}}">
+    <meta property="og:description" content="{{$post->description}}">
+    <meta property="og:site_name" content="amirrezam75">
+    <meta property=og:url content="{{Request::url()}}">
+    <meta property="article:published_time" content="{{$post->created_at}}">
+    <meta property="article:modified_time" content="{{$post->updated_at}}">
+    <meta property="og:image" content="{{$post->photo ? asset('upload/post/'.$post->photo->path) : asset('images/single-blog.png')}}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" >
 
@@ -22,7 +30,7 @@
     <link rel="stylesheet" href="{{asset('css/article.css')}}">
 
     <!--[if lt IE 9]>
-    <script src="{{asset('js/html5shiv.js')}}"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <![endif]-->
 </head>
 
@@ -85,7 +93,7 @@
                                     <a href="#" class="left post-like EnFont " title="برای لایک کردن باید وارد شوید"><i class="mdi-action-favorite"></i> <span class="numb">{{$post->likes}}</span></a>
                                 @endif
                                 <ul class="clearfix right share-post">
-                                    <li><a href="#"><i class="fa fa-telegram"></i> <span>تلگرام</span></a></li>
+                                    <li><a href="https://telegram.me/share/url?url={{Request::url()}}"><i class="fa fa-telegram"></i> <span>تلگرام</span></a></li>
                                 </ul>
                             </div>
 
