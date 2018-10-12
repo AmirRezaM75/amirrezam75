@@ -152,7 +152,7 @@
                                     <input type="hidden" name="user_id" value="{{Auth::user()->id}}">
                                     <div class="input-field textarea-input">
                                         <textarea id="comment" name="text" class="materialize-textarea RTL_direction" style="height: 22px;"></textarea>
-                                        <label for="comment" class="input-label">Comment</label>
+                                        <label for="comment" class="input-label">کامنت</label>
                                     </div>
                                     <div class="input-field submit-wrap">
                                         <button type="submit" class="waves-effect waves-light btn-large brand-bg white-text comm-submit regular-text">ارسال کامنت</button>
