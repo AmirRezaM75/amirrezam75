@@ -4,8 +4,7 @@
 
   Theme Name : MaterialX
   Version    :  1.0
-  Author     :  Bdinfosys
-  Author URI :  http://themeforest.net/user/bdinfosys
+  Author     :  Bdinfosys - Edited by Amir Reza Mehrbakhsh
 ====================================================
 */
 
@@ -161,12 +160,12 @@ a.tags:hover {
 }
 
 .single-post-content h2 {
-	font-size: 22px;
+	font-size: 2.25rem;
 	margin-bottom: 10px;
 }
 
 .single-post-content h3 {
-	font-size: 18px;
+	font-size: 1.75rem;
 	margin-bottom: 10px;
 }
 
@@ -183,9 +182,8 @@ a.tags:hover {
 	font-size: 16px;
 	font-style: italic;
 	font-weight: 400;
-	padding-left: 20px;
+	padding-right: 20px;
 	line-height: 30px;
-	margin-bottom: 33px;
 }
 
 .single-post-content ul {
@@ -263,6 +261,31 @@ a.tags:hover {
 .post-like.active,
 .post-like:hover {
 	color: #f84b4b;
+}
+
+.post-visit {
+	color: #cfcfcf;
+	font-size: 20px;
+	line-height: 25px;
+	margin-right: 0;
+	-webkit-transition: color 0.3s ease;
+	transition: color 0.3s ease;
+	margin-left: 15px;
+}
+.post-visit i {
+	font-size: 20px;
+	vertical-align: middle;
+}
+.post-visit .numb {
+	font-size: 13px;
+	color: #727272;
+	vertical-align: middle;
+	font-weight: 500;
+}
+
+.post-visit.active,
+.post-visit:hover {
+	color: #727272;
 }
 
 
@@ -378,8 +401,7 @@ a.tags:hover {
 
 @media (max-width: 767px) {
 	
-	.single-post-content ul li,
-	.single-post-content p {
+	.single-post-content ul li {
 		font-size: 13px;
 	}
 

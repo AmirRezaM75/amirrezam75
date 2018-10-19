@@ -76,6 +76,7 @@ class PostsController extends Controller
         $commentsCount = count($post->comments);
         $recentPosts = Post::orderBy('created_at','desc')->take(5)->get();
         $categories = Category::all();
+        $post->increment('visits');
         return view('main.layouts.article',compact('post','comments','commentsCount','recentPosts','categories'));
     }
 

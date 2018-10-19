@@ -3,12 +3,12 @@
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
-<html class="no-js">
+<html class="no-js" lang="fa-IR">
 <!--<![endif]-->
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--[if IE]><meta http-equiv=X-UA-Compatible content="IE=edge"><![endif]-->
     <title>{{$post->title}}</title>
     <meta name="description" content="{{$post->description}}">
     <meta property="og:locale" content="fa_IR">
@@ -61,7 +61,7 @@
                         <h2 class="title RTL_direction text-right">{{$post->title}}</h2>
                         <ul class="clearfix blog-post-meta pull-right">
                             <li>By <a href="#" class="EnFont">{{$post->user->username}}</a></li>
-                            <li>{{$post->created_at}}</li>
+                            <li>{{$post->created_at->diffForHumans()}}</li>
                             <li><a href="#comments" data-section="#comments" class="menu-smooth-scroll EnFont">{{$commentsCount}} Comments</a></li>
                             <li><a href="{{url('/blog/category',$post->category->id)}}">{{$post->category->name}}</a></li>
                         </ul>
@@ -86,12 +86,12 @@
                                 {!! $post->text !!}
                             </div>
                             <div class="clearfix post-footer">
-
                                 @if(Auth::check())
                                     <a href="#" class="left post-like js-favorite EnFont {{Auth::user()->likes()->where('post_id',$post->id)->first() ? 'active' : ''}}" title="{{Auth::user()->likes()->where('post_id',$post->id)->first() ? 'شما قبلا این پست را لایک کرده اید' : 'لایک'}}" data-postid="{{$post->id}}"><i class="mdi-action-favorite"></i> <span class="numb">{{$post->likes}}</span></a>
                                 @else
                                     <a href="#" class="left post-like EnFont " title="برای لایک کردن باید وارد شوید"><i class="mdi-action-favorite"></i> <span class="numb">{{$post->likes}}</span></a>
                                 @endif
+                                    <a href="#" class="left post-visit EnFont " title="بازدید"><i class="mdi-image-remove-red-eye"></i> <span class="numb">{{$post->visits}}</span></a>
                                 <ul class="clearfix right share-post">
                                     <li><a href="https://telegram.me/share/url?url={{Request::url()}}"><i class="fa fa-telegram"></i> <span>تلگرام</span></a></li>
                                 </ul>
@@ -168,8 +168,8 @@
                                     {!! Form::close() !!}
                                 </div>
                             @else
-                                <h2 class="com-title RTL_direction">برای ثبت نظر باید <a href="/login" style="margin-left: 0px;padding-left: 0px;border-left: 0 solid #dddddd;">وارد</a> حساب کاربری خود شوید. اگر تا کنون ثبت نام نکردید
-                                    <a href="/register" style="margin-left: 0px;padding-left: 0px;border-left: 0 solid #dddddd;">اینجا</a> کلیک کنید</h2>
+                                <h2 class="com-title RTL_direction text-center alert alert-info">برای ثبت نظر باید <a href="{{url('/login')}}" style="margin-left: 0px;padding-left: 0px;border-left: 0 solid #dddddd;">وارد</a> حساب کاربری خود شوید. اگر تا کنون ثبت نام نکردید
+                                    <a href="{{url('/register')}}" style="margin-left: 0px;padding-left: 0px;border-left: 0 solid #dddddd;">اینجا</a> کلیک کنید</h2>
                             @endif
 
                         </article>
@@ -181,7 +181,7 @@
                                 <ul>
                                     @foreach($recentPosts as $recentPost)
                                         <li>
-                                            <a href="">{{$recentPost->title}}</a>
+                                            <a href="{{url($recentPost->path())}}">{{$recentPost->title}}</a>
                                             <span class="text-left LTR_direction">{{$recentPost->created_at->format('Y/m/d')}}</span>
                                         </li>
                                     @endforeach

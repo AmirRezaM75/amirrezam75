@@ -22,6 +22,7 @@ class CreatePostsTable extends Migration
             $table->string('description');
             $table->text('text');
             $table->integer('likes');
+            $table->unsignedInteger('visits')->default(0);
 
             $table->timestamps();
         });
