@@ -30,17 +30,6 @@ $(document).ready(function(){
 
 
 	$(".primary-nav .button-collapse").sideNav();
-
-
-	// blog Mesonary
-	if ( $('#blog-posts').length > 0 ) {
-		window.blogMsnry = $('#blog-posts').isotope({
-			itemSelector: '.single-post',
-			isInitLayout: false,
-			layoutMode: 'masonry'
-		});
-	}
-
 });
 
 

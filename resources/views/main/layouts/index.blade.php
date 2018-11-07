@@ -10,33 +10,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>صفحه ی شخصی امیررضا مهربخش &block; Amir Reza Mehrbakhsh Personal Site</title>
-    <meta name="description" content="">
+    <meta name="description" content="{{$about->text}}">
+    <meta name="keywords" content="Amir Reza Mehrbakhsh, amirrezam75, امیررضا مهربخش">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
 
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" >
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" href="{{asset('css/normalize.css')}}">
-    {{--<link rel="stylesheet" href="{{asset('fonts/font-awesome/css/font-awesome.min.css')}}">--}}
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
     <link rel="stylesheet" href="{{asset('libs/materialize/css/materialize.min.css')}}" media="screen,projection" />
-    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}" media="screen,projection" />
-
-    <link rel="stylesheet" href="{{asset('css/animate.css')}}" media="screen,projection" />
-    {{--<link rel="stylesheet" href="{{asset('libs/sweetalert/sweet-alert.min.css')}}" media="screen,projection" />--}}
-
-    <link rel="stylesheet" href="{{asset('libs/owl-carousel/owl.carousel.min.css')}}" media="screen,projection" />
-    <link rel="stylesheet" href="{{asset('libs/owl-carousel/owl.theme.default.min.css')}}" media="screen,projection" />
-    {{--<link href="{{asset('libs/frame-carousel/jquery.frame-carousel.min.css')}}" rel="stylesheet">--}}
-
-    <link rel="stylesheet" href="{{asset('css/main.css')}}">
-    <link rel="stylesheet" href="{{asset('css/responsive.css')}}">
-    <link rel="stylesheet" href="{{asset('css/mystyle.css')}}">
-
-    <!-- Choose your default colors -->
-    <link rel="stylesheet" href="{{asset('css/colors/color1.css')}}">
+    <link rel="stylesheet" href="{{asset('css/index-all.css')}}" media="screen,projection" />
 
     <!--[if lt IE 9]>
     <script src="{{asset('js/html5shiv.js')}}"></script>
@@ -377,19 +361,6 @@
 
 <!-- JavaScripts -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-{{--<script src="{{asset('js/jquery.easing.1.3.min.js')}}"></script>--}}
-<script src="{{asset('js/detectmobilebrowser.min.js')}}"></script>
-{{--<script src="{{asset('js/isotope.pkgd.min.js')}}"></script>--}}
-{{--<script src="{{asset('js/wow.min.js')}}"></script>--}}
-<script src="{{asset('js/waypoints.min.js')}}"></script>
-<script src="{{asset('js/jquery.counterup.min.js')}}"></script>
-{{--<script src="{{asset('js/jquery.nicescroll.min.js')}}"></script>--}}
-<script src="{{asset('libs/owl-carousel/owl.carousel.min.js')}}"></script>
-{{--<script src="{{asset('libs/frame-carousel/jquery.frame-carousel.min.js')}}"></script>--}}
-<script src="{{asset('libs/materialize/js/materialize.min.js')}}"></script>
-{{--<script src="{{asset('libs/jwplayer/jwplayer.min.js')}}"></script>--}}
-{{--<script src="{{asset('libs/sweetalert/sweet-alert.min.js')}}"></script>--}}
-<script src="{{asset('js/common.js')}}"></script>
-<script src="{{asset('js/main.js')}}"></script>
+<script src="{{asset('js/index-all.js')}}"></script>
 </body>
 </html>
