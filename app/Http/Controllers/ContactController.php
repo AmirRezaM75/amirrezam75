@@ -60,7 +60,7 @@ class ContactController extends Controller
 
     public function createMessage(Request $request)
     {
-        Contact::create($request->all());
-        return redirect('/');
+        $data = Contact::create($request->all());
+        echo json_encode($data);
     }
 }

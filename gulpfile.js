@@ -13,12 +13,12 @@ var elixir = require('laravel-elixir');
 elixir.config.sourcemaps = false;
 elixir(function(mix) {
     mix
-        .copy('public/css/bootstrap.css','resources/assets/css/bootstrap.css')
-        .copy('public/css/normalize.css','resources/assets/css/normalize.css')
-        .copy('public/libs/materialize/css/materialize.min.css','resources/assets/css/materialize.min.css')
-        .copy('public/css/animate.css','resources/assets/css/animate.css')
-        .copy('public/libs/owl-carousel/owl.carousel.min.css','resources/assets/css/owl.carousel.min.css')
-        .copy('public/libs/owl-carousel/owl.theme.default.min.css','resources/assets/css/owl.theme.default.min.css')
+        //.copy('public/css/bootstrap.css','resources/assets/css/bootstrap.css')
+        //.copy('public/css/normalize.css','resources/assets/css/normalize.css')
+        //.copy('public/libs/materialize/css/materialize.min.css','resources/assets/css/materialize.min.css')
+        //.copy('public/css/animate.css','resources/assets/css/animate.css')
+        //.copy('public/libs/owl-carousel/owl.carousel.min.css','resources/assets/css/owl.carousel.min.css')
+        //.copy('public/libs/owl-carousel/owl.theme.default.min.css','resources/assets/css/owl.theme.default.min.css')
         //.copy('public/css/main.css','resources/assets/css/main.css')
         //.copy('public/css/responsive.css','resources/assets/css/responsive.css')
         //.copy('public/css/blog.css','resources/assets/css/blog.css')
@@ -30,9 +30,43 @@ elixir(function(mix) {
         //.copy('public/libs/owl-carousel/owl.carousel.min.js','resources/assets/js/owl.carousel.min.js')
         //.copy('public/libs/materialize/js/materialize.min.js','resources/assets/js/materialize.min.js')
         //.copy('public/js/myScript.js','resources/assets/js/myScript.js')
-        //.styles(['bootstrap.css','main.css','responsive.css','blog.css','prism.css','mystyle.css','color1.css'],'public/css/article.css')
-        .styles(['normalize.css','bootstrap.css','animate.css','owl.carousel.min.css','owl.theme.default.min.css','main.css','responsive.css','mystyle.css','color1.css'],'public/css/index-all.css')
-        //.scripts(['myScript.js','common.js','prism.js'],'public/js/article.js')
-        //.scripts(['waypoints.min.js','owl.carousel.min.js','materialize.min.js','common.js','main.js'],'public/js/index-all.js');
+        .copy('node_modules/sweetalert/dist/sweetalert.min.js','resources/assets/js/sweetalert.min.js')
+        .styles([
+            'bootstrap.css',
+            'main.css',
+            'responsive.css',
+            'blog.css',
+            'prism.css',
+            'mystyle.css',
+            'color1.css'
+        ],'public/css/article.css')
 
+        .styles([
+            'normalize.css',
+            'bootstrap.css',
+            'animate.css',
+            'owl.carousel.min.css',
+            'owl.theme.default.min.css',
+            'main.css',
+            'responsive.css',
+            'mystyle.css',
+            'color1.css'
+        ],'public/css/index-all.css')
+
+        .scripts([
+            'myScript.js',
+            'common.js',
+            'prism.js'
+        ],'public/js/article.js')
+
+        .scripts([
+            'waypoints.min.js',
+            'owl.carousel.min.js',
+            'materialize.min.js',
+            'common.js',
+            'sweetalert.min.js',
+            'main.js',
+            'myScript.js'
+        ],'public/js/index-all.js')
+        .version(['css/index-all.css','js/index-all.js'], 'public');
 });

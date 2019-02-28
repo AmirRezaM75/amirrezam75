@@ -23,4 +23,30 @@ $(document).ready(function () {
             data = JSON.parse(data);
         });
     });
+
+    $('form#contact-form button').on('click',function (event) {
+        form = $('form#contact-form');
+        var name    = $('input[name=name]').val();
+        var email   = $('input[name=email]').val();
+        var subject = $('input[name=subject]').val();
+        var message = $('input[name=message]').val();
+
+        $.ajax({
+            method: 'POST',
+            url: urlContact,
+            data: {
+                name:name,
+                email:email,
+                subject:subject,
+                message: message,
+                _token:token
+            }
+        }).done(function(data){
+            data = JSON.parse(data);
+            swal("ارسال شد", name + " پیغام شما با موفقیت ارسال شد", "success" , {
+                button: "بستن",
+            });
+        });
+        event.preventDefault();
+    });
 });

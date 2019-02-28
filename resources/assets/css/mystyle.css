@@ -23,6 +23,10 @@ body {
     font-family: 'Yekan',Roboto, sans-serif;
 }
 
+button, input {
+    font-family: 'Yekan',Roboto, sans-serif;
+}
+
 blockquote {
     background: #e4f5f7;
     margin: 1.5em 10px;
@@ -64,8 +68,8 @@ blockquote {
 .person-info,
 .person-about,
 .skill-left,
-#contactForm textarea,
-#contactForm input,
+#contact-form textarea,
+#contact-form input,
 .contact-text .title,
 .contact-text .subtitle,
 .blog-text .title,
@@ -146,4 +150,10 @@ a.post-title-link {
 }
 .owl-theme .owl-nav [class*='owl-']:hover {
     background: transparent;
+}
+
+
+/****** Sweet Alert ********/
+.swal-text {
+    direction: rtl;
 }

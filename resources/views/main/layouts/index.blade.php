@@ -20,7 +20,7 @@
     <!-- Stylesheets -->
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('libs/materialize/css/materialize.min.css')}}" media="screen,projection" />
-    <link rel="stylesheet" href="{{asset('css/index-all.css')}}" media="screen,projection" />
+    <link rel="stylesheet" href="{{elixir('css/index-all.css', null)}}" media="screen,projection" />
 
     <!--[if lt IE 9]>
     <script src="{{asset('js/html5shiv.js')}}"></script>
@@ -304,7 +304,9 @@
                                 <div class="col-sm-5">
                                     <div class="clearfix card-panel grey lighten-5 cform-wrapper">
 
-                                        {!! Form::open(['method'=>'POST', 'action'=>'ContactController@createMessage','id'=>'contactForm']) !!}
+                                        <form action="{{route('ajax.contact')}}" id="contact-form" method="post">
+                                            {{csrf_field()}}
+                                            {{method_field('POST')}}
 
                                             <div class="input-field">
                                                 <input id="contact_name" type="text" name="name" class="validate input-box" required>
@@ -323,14 +325,9 @@
                                                 <label for="contact_message" class="input-label">متن پیام</label>
                                             </div>
                                             <div class="input-field submit-wrap clearfix">
-                                                <button type="submit" class="left waves-effect btn-flat brand-text submit-btn">فرستادن پیام</button>
-                                                <div class="right form-loader-area">
-                                                    <svg class="circular size-20" height="20" width="20">
-                                                        <circle class="path" cx="10" cy="10" r="7" fill="none" stroke-width="3" stroke-miterlimit="10" />
-                                                    </svg>
-                                                </div>
+                                                <button type="button" class="left waves-effect btn-flat brand-text submit-btn">فرستادن پیام</button>
                                             </div>
-                                        {!! Form::close() !!}
+                                        </form>
                                     </div>
                                 </div> <!-- ./contact form end -->
                             </div>
@@ -361,6 +358,12 @@
 
 <!-- JavaScripts -->
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="{{asset('js/index-all.js')}}"></script>
+<script type="text/javascript">
+    var token = '{{ Session::token() }}';
+    var urlContact = '{{route('ajax.contact')}}';
+</script>
+<script type="text/javascript" src="{{elixir('js/index-all.js', null)}}"></script>
+
+
 </body>
 </html>

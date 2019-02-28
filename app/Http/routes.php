@@ -13,8 +13,6 @@ Route::get('/404', function () {
     return view('errors.404');
 });
 
-
-Route::post('/','ContactController@createMessage');
 Route::post('/post','CommentsController@createComment');
 
 ///////////////////////HOME/////////////////////
@@ -102,5 +100,11 @@ Route::post('/ajax/tags/delete',[
 Route::post('/ajax/user/picture/edit',[
     'as'=>'updatePictureProfile',
     'uses'=>'UsersController@updatePicture'
+]);
+
+
+Route::post('/ajax/contact',[
+	'as'=>'ajax.contact',
+	'uses'=>'ContactController@createMessage'
 ]);
 
