@@ -17,11 +17,20 @@ Route::post('/post','CommentsController@createComment');
 
 ///////////////////////HOME/////////////////////
 Route::get('/',function (){
+
+
+	///////////////////////INSTAGRAM FEED/////////////////////
+	$token = env('INSTAGRAM_ACCESS_TOKEN');
+	$count = 8;
+	$url = "https://api.instagram.com/v1/users/self/media/recent/?access_token={$token}&count={$count}";
+	$response = json_decode(file_get_contents($url));
+
     $members = Member::all();
     $skills = Skill::all();
     $about = About::first();
     $posts = Post::orderBy('created_at','desc')->take(3)->get();
-    return view('main.layouts.index',compact('posts','skills','about','members'));
+    $feeds = $response->data;
+    return view('main.layouts.index',compact('posts','skills','about','members', 'feeds'));
 });
 
 

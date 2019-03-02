@@ -336,17 +336,29 @@
                 </div>
             </div>
         </div> <!-- ./container end -->
-        <div class="section-call-to-area">
-            <div class="container">
-                <div class="row">
-                    <a href="#home" class="btn-floating btn-large button-middle call-to-home section-call-to-btn animated btn-up btn-hidden" data-section="#home">
-                        <i class="mdi-navigation-expand-less"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
     </section>
     <!-- #contact Section end -->
+
+    {{--TODO: add carousel_media feature--}}
+    <section id="instagram-content">
+        @foreach($feeds as $feed)
+            <a href="{{url($feed->link)}}" target="_blank" class="post">
+                <div class="image" style="background-image: url({{$feed->images->standard_resolution->url}})">
+
+                </div>
+            </a>
+        @endforeach
+            {{--TODO: create a seperate component for call-to-area button--}}
+            <div class="section-call-to-area">
+                <div class="container">
+                    <div class="row">
+                        <a href="#home" class="btn-floating btn-large button-middle call-to-home section-call-to-btn animated btn-up btn-hidden" data-section="#home">
+                            <i class="mdi-navigation-expand-less"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+    </section>
 
     <!-- Footer Section end -->
     @include('partials.footer')
