@@ -62,7 +62,7 @@
                         <div class="home-inner">
                             <div class="center-align home-content">
                                 <h1 class="home-title">سلام، <span>امیررضا مهربخش</span> هستم</h1>
-                                <h2 class="home-subtitle RTL_direction">طراح UI/UX از گروه تیوان</h2>
+                                <h2 class="home-subtitle RTL_direction">طراح و توسعه دهنده&zwnj;ی وب از شرکت داکیا</h2>
                                 <a href="#contact" class="hire-me-btn btn waves-effect waves-light btn-large brand-bg white-text regular-text">دعوت به همکاری <i class="mdi-content-send left"></i>
                                 </a>
                             </div>
