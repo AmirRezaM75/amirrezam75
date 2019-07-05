@@ -1,28 +1,17 @@
 <div id="switch">
     <div class="content-switcher">
-        <p class="brand-text">Color Options:</p>
-        <ul class="header">
-            <li><a href="#" onclick="setActiveStyleSheet('color1'); return false;" class="button color switch" style="background-color:#00bcd4"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color2'); return false;" class="button color switch" style="background-color:#ff4081"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color3'); return false;" class="button color switch" style="background-color:#C043D5"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color4'); return false;" class="button color switch" style="background-color:#73D077"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color5'); return false;" class="button color switch" style="background-color:#FE7448"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color6'); return false;" class="button color switch" style="background-color:#1ABBAC"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color7'); return false;" class="button color switch" style="background-color:#EAB82E"></a></li>
-            <li><a href="#" onclick="setActiveStyleSheet('color8'); return false;" class="button color switch" style="background-color:#799CAC"></a></li>
-        </ul>
-        <p class="brand-text">Menu Options:</p>
-        <div class="menu-select" title="The menu will display in all devices">
+        <p class="brand-text">تنظیمات منو</p>
+        <div class="menu-select" title="منو در تمام دستگاه&zwnj;ها نشان داده میشود">
             <input type="radio" id="menu1" name="intelligent-menu">
-            <label for="menu1">Fixed</label>
+            <label for="menu1">ثابت</label>
         </div>
-        <div class="menu-select" title="The menu will display or hide in all devices depending on scroll">
+        <div class="menu-select" title="با توجه به اسکرول کردن شما منو مخفی میشود">
             <input type="radio" id="menu2" name="intelligent-menu" checked="checked">
-            <label for="menu2">Intelligent ( Auto Hide )</label>
+            <label for="menu2">هوشمند</label>
         </div>
-        <div class="menu-select" title="Fixed menu will apply in non-mobile devices and Intelligent menu will apply in mobile devices">
+        <div class="menu-select" title="">
             <input type="radio" id="menu3" name="intelligent-menu">
-            <label for="menu3">Mobile Intelligent</label>
+            <label for="menu3">مناسب برای موبایل</label>
         </div>
         <div id="hide">
             <i class="fa fa-times"></i>
