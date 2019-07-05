@@ -19,7 +19,11 @@ class HomeController extends Controller
 
 	public function search()
 	{
-		$posts = Post::where('title', 'like', '%'.request('query').'%')->get();
+		$query = request('query');
+		$posts = Post::where('title', 'like', '%'.$query.'%')
+		             ->orWhere('description', 'like', '%'.$query.'%')
+		             ->orWhere('text', 'like', '%'.$query.'%')
+		             ->get();
 		return view('main.layouts.blog',compact('posts'));
 	}
 }
