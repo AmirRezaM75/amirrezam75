@@ -186,7 +186,7 @@
                             <div class="clearfix section-head team-text">
                                 <div class="col-sm-12">
                                     <h2 class="title text-right">اعضای تیم</h2>
-                                    <p class="regular-text text-right RTL_direction">تیم "تیوان" شامل افرادی با سلیقه و با روحیه خوب میباشند که هر کدام در زمینه ی خودشان عالی هستند.مهمترین چیز در این تیم حفظ احترام و دوستی هست.</p>
+                                    <p class="regular-text text-right RTL_direction">اعضای تیم تیوان که نزدیک به پنج سال هست که با این گروه به عنوان فریلنسر کار میکنم.  </p>
                                 </div>
                             </div>
                             <div class="col-lg-12">
