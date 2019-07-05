@@ -10,9 +10,10 @@
                                 <li class="search-form-li">
                                     <a id="initSearchIcon" class=""><i class="mdi-action-search"></i></a>
                                     <div class="search-form-wrap hide">
-                                        <form action="#" class="">
+                                        <form action="{{route('search')}}" method="POST">
+                                            {{csrf_field()}}
                                             <label for="search" class="sr-only"></label>
-                                            <input type="search" class="search" id="search">
+                                            <input type="search" name="query" class="search" id="search">
                                             <button type="submit"><i class="mdi-action-search"></i></button>
                                         </form>
                                     </div>

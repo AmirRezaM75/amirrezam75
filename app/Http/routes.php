@@ -58,7 +58,7 @@ Route::get('/blog/tag/{id}',function ($id){
     return view('main.layouts.blog',compact('posts','categories'));
 });
 
-
+Route::post('/search', ['as' => 'search', 'uses' => 'HomeController@search']);
 
 
 Route::auth();

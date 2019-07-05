@@ -2,20 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use Illuminate\Http\Request;
+use App\Post;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
 
     /**
      * Show the application dashboard.
@@ -26,4 +16,10 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+	public function search()
+	{
+		$posts = Post::where('title', 'like', '%'.request('query').'%')->get();
+		return view('main.layouts.blog',compact('posts'));
+	}
 }
