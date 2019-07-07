@@ -98,4 +98,3 @@ Route::post('/ajax/contact',[
 	'as'=>'ajax.contact',
 	'uses'=>'ContactController@createMessage'
 ]);
-

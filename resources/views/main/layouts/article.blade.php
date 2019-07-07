@@ -7,10 +7,14 @@
 <!--<![endif]-->
 
 <head>
+    @php
+        $tags = $post->tags->map(function ($tag){return $tag->name;})->toArray();
+    @endphp
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv=X-UA-Compatible content="IE=edge"><![endif]-->
     <title>{{$post->title}}</title>
     <meta name="description" content="{{$post->description}}">
+    <meta name="keywords" content="{{implode(',',$tags)}}">
     <meta property="og:locale" content="fa_IR">
     <meta property="og:type" content="article">
     <meta property="og:title" content="{{$post->title}}">
