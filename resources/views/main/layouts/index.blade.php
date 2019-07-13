@@ -115,7 +115,6 @@
                             <h5><span>سن :</span> {{date('Y') - $about->birthday}} </h5>
                             <h5><span>شغل :</span> <span itemprop="jobTitle">{{$about->job}}</span> </h5>
                             <h5><span>ایمیل :</span> <a href="mailto:{{$about->email}}" class="EnFont">{{$about->email}}</a> </h5>
-                            <h5><span>تلفن تماس :</span> <a href="tel:09351952609" class="EnFont">09351952609</a> </h5>
                         </div>
                     </div>
                     <!-- about me info -->
