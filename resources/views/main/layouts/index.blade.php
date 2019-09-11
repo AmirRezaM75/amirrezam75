@@ -21,7 +21,6 @@
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{asset('libs/materialize/css/materialize.min.css')}}" media="screen,projection" />
     <link rel="stylesheet" href="{{elixir('css/index-all.css', null)}}" media="screen,projection" />
-
     <!--[if lt IE 9]>
     <script src="{{asset('js/html5shiv.js')}}"></script>
     <![endif]-->
@@ -136,7 +135,7 @@
                             <div class="col-sm-12 col-md-3">
                                 <div class="skill-left">
                                     <h2 class="title">مهارت ها</h2>
-                                    <p class="regular-text">در این نمودار مهارت هایی که تا به اینجا کسب کردم و میزان تسلط من به آنها را میبینیم.</p>
+                                    <p class="regular-text">میزان درصد زمانی که به هر مهارت اختصاص دادم را در اینجا می بینیم</p>
                                 </div>
                             </div>
 
@@ -342,6 +341,10 @@
     <section id="instagram-content">
         @foreach($feeds as $feed)
             <a href="{{url($feed->link)}}" target="_blank" class="post">
+                <div class="shell EnFont">
+                    <span><i class="fa fa-comment"></i>{{$feed->comments->count}}</span>
+                    <span><i class="fa fa-heart" style="color:#c75b59;"></i>{{$feed->likes->count}}</span>
+                </div>
                 <div class="image" style="background-image: url({{$feed->images->standard_resolution->url}})">
 
                 </div>
