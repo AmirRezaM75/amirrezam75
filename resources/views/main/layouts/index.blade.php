@@ -343,7 +343,7 @@
             <a href="{{url($feed->link)}}" target="_blank" class="post">
                 <div class="shell EnFont">
                     <span><i class="fa fa-comment"></i>{{$feed->comments->count}}</span>
-                    <span><i class="fa fa-heart" style="color:#c75b59;"></i>{{$feed->likes->count}}</span>
+                    <span><i class="fa fa-heart"></i>{{$feed->likes->count}}</span>
                 </div>
                 <div class="image" style="background-image: url({{$feed->images->standard_resolution->url}})">
 
