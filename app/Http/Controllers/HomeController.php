@@ -17,21 +17,23 @@ class HomeController extends Controller
      */
     public function index()
     {
+
 	    $members = Member::all();
 	    $skills  = Skill::all();
 	    $about = About::first();
 	    $posts = Post::orderBy('created_at','desc')->take(3)->get();
         ///////////////////////INSTAGRAM FEED/////////////////////
         $token = env('INSTAGRAM_ACCESS_TOKEN');
-        $count = 8;
+        $count = 12;
         $url = "https://api.instagram.com/v1/users/self/media/recent/?access_token={$token}&count={$count}";
         // In case access_token is expired
         try {
             $response = json_decode(file_get_contents($url));
-            $feeds = $response->data;
+            $feeds = array_slice($response->data, 0, 8);
         } catch (\Exception $exception) {
             $feeds = [];
         }
+
 
 	    return view('main.layouts.index',compact('posts','skills','about','members', 'feeds'));
     }
