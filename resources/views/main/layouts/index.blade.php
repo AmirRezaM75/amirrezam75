@@ -183,8 +183,8 @@
                         <div class="row">
                             <div class="clearfix section-head team-text">
                                 <div class="col-sm-12">
-                                    <h2 class="title text-right">اعضای تیم</h2>
-                                    <p class="regular-text text-right RTL_direction">اعضای تیم تیوان که نزدیک به پنج سال هست که با این گروه به عنوان فریلنسر کار میکنم.  </p>
+                                    <h2 class="title text-right">دوستان</h2>
+                                    <p class="regular-text text-right RTL_direction">طراحی وب رو با هم شروع کردیم و مسیری که الان در اون قرار دارم به خاطر تصمیمی که در سال ۹۴ با هم گرفتیم هست. چندتا پروژه به صورت فریلنس داشتیم.</p>
                                 </div>
                             </div>
                             <div class="col-lg-12">
