@@ -6072,6 +6072,7 @@ header.nav.hide-menu {
     padding-left: 15px;
     padding-bottom: 20px;
     border-bottom: none;
+    min-height: 11rem; /*Edited*/
 }
 
 .blog-inner .card-img-wrap {
