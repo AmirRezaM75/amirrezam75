@@ -7443,6 +7443,14 @@ blockquote {
     font-family: 'Roboto','Open Sans', sans-serif !important;
 }
 
+.purple-bg {
+    background-color: #707af3 !important;
+}
+
+.d-relative {
+    position: relative;
+}
+
 .common_anchor,
 .common_anchor:hover,
 .common_anchor:focus {
@@ -7553,33 +7561,33 @@ a.post-title-link {
 }
 
 /****** Instagram Section ********/
-#instagram-content {
+/*#instagram-content {
     position:relative;
     width:100vw;
     display: flex;
     flex-flow:row wrap;
-}
+}*/
 
-#instagram-content .post {
+.instagram-content .post {
     position: relative;
     background: #000;
     display: block;
     overflow: hidden;
 }
 
-#instagram-content .post {
+.instagram-content .post {
     width: 25vw;
     height: 25vw;
 }
 
 @media (max-width: 576px) {
-    #instagram-content .post {
+    .instagram-content .post {
         width: 50vw;
         height: 50vw;
     }
 }
 
-#instagram-content .post .image {
+.instagram-content .post .image {
     position: absolute;
     top: 0;
     left: 0;
@@ -7590,12 +7598,12 @@ a.post-title-link {
     transition: all .15s ease-in-out;
 }
 
-#instagram-content .post:hover .image {
+.instagram-content .post:hover .image {
     -webkit-transform: scale(1.15) translate3d(0, 0, 0);
     transform: scale(1.15) translate3d(0, 0, 0);
 }
 
-#instagram-content .post .shell {
+.instagram-content .post .shell {
     width: 100%;
     height: 100%;
     z-index: 1;
@@ -7603,7 +7611,7 @@ a.post-title-link {
     display: none;
 }
 
-#instagram-content .post:hover .shell {
+.instagram-content .post:hover .shell {
     background-color: rgba(0,0,0,.5);
     display: flex;
     justify-content: center;
@@ -7612,19 +7620,33 @@ a.post-title-link {
     height: 100%;
 }
 
-#instagram-content .post .shell span {
+.instagram-content .post .shell span {
     font-size: 1.2rem;
     color: white;
 }
 
-#instagram-content .post .shell span:first-child {
+.instagram-content .post .shell span:first-child {
     color: #fafafa;
     margin-right: 20px;
 }
 
-#instagram-content .post .shell span i{
+.instagram-content .post .shell span i{
     margin: 0 7px;
 }
+
+.instagram-content .owl-next {
+    position: absolute;
+    top: calc(50% - (35px));
+    right: 5px;
+}
+
+.instagram-content .owl-prev {
+    position: absolute;
+    top: calc(50% - (35px));
+    left: 5px;
+}
+
+
 .brand-text {
     color: #00bcd4 !important;
 }

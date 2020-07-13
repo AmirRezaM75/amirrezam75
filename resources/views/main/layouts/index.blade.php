@@ -90,12 +90,18 @@
             <div class="row">
                 <div class="clearfix about-inner">
 
-
                     <div class="col-sm-12 col-md-4">
                         <div class="person-about">
                             <h3 class="about-subtitle">درباره ی من</h3>
                             <p>{{$about->text}}</p>
-                            <a href="https://atbox.io/amirrezam75/resume" target="_blank" class="waves-effect waves-light btn-large brand-bg white-text"><i class="mdi-content-archive left"></i>دانلود رزومه </a>
+                            <a href="https://atbox.io/amirrezam75/resume"
+                               target="_blank"
+                               class="waves-effect waves-light btn-large brand-bg white-text"
+                               style="font-weight: bold;"><i class="mdi-content-archive left"></i>دانلود رزومه </a>
+                            <a href="https://zarinp.al/@amirrezam75"
+                               target="_blank"
+                               class="waves-effect waves-light btn-large purple-bg white-text"
+                               style="font-weight: bold; margin-right: 10px;"><i class="mdi-action-wallet-giftcard left"></i>حمایت از من </a>
                         </div>
                     </div>
                     <!-- about me description -->
@@ -338,28 +344,31 @@
     <!-- #contact Section end -->
 
     {{--TODO: add carousel_media feature--}}
-    <section id="instagram-content">
-        @foreach($feeds as $feed)
-            <a href="{{url($feed->link)}}" target="_blank" class="post">
-                <div class="shell EnFont">
-                    <span><i class="fa fa-comment"></i>{{$feed->comments->count}}</span>
-                    <span><i class="fa fa-heart"></i>{{$feed->likes->count}}</span>
-                </div>
-                <div class="image" style="background-image: url({{$feed->images->standard_resolution->url}})">
-
-                </div>
-            </a>
-        @endforeach
-            {{--TODO: create a seperate component for call-to-area button--}}
-            <div class="section-call-to-area">
-                <div class="container">
-                    <div class="row">
-                        <a href="#home" class="btn-floating btn-large button-middle call-to-home section-call-to-btn animated btn-up btn-hidden" data-section="#home">
-                            <i class="mdi-navigation-expand-less"></i>
-                        </a>
+    <section class="d-relative">
+        <div id="instagramSlider" class="instagram-content owl-carousel owl-theme">
+            @foreach(array_slice($feeds, 0, 8) as $feed)
+                <a href="{{url($feed['link'])}}" target="_blank" class="post">
+                    <div class="shell EnFont">
+                        <span><i class="fa fa-comment"></i>{{$feed['comments_count']}}</span>
+                        <span><i class="fa fa-heart"></i>{{$feed['likes_count']}}</span>
                     </div>
+                    <div class="image" style="background-image: url({{$feed['thumbnail_src']}})">
+
+                    </div>
+                </a>
+            @endforeach
+        </div>
+
+        {{--TODO: create a seperate component for call-to-area button--}}
+        <div class="section-call-to-area">
+            <div class="container">
+                <div class="row">
+                    <a href="#home" class="btn-floating btn-large button-middle call-to-home section-call-to-btn animated btn-up btn-hidden" data-section="#home">
+                        <i class="mdi-navigation-expand-less"></i>
+                    </a>
                 </div>
             </div>
+        </div>
     </section>
 
     <!-- Footer Section end -->
