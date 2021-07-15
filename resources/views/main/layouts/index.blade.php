@@ -94,7 +94,7 @@
                         <div class="person-about">
                             <h3 class="about-subtitle">درباره ی من</h3>
                             <p>{{$about->text}}</p>
-                            <a href="https://atbox.io/amirrezam75/resume"
+                            <a href="{{ asset('resume.pdf') }}"
                                target="_blank"
                                class="waves-effect waves-light btn-large brand-bg white-text"
                                style="font-weight: bold;"><i class="mdi-content-archive left"></i>دانلود رزومه </a>
