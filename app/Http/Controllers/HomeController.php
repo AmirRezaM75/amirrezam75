@@ -18,7 +18,7 @@ class HomeController extends Controller
     public function index()
     {
 
-	    $members = Member::all();
+	    $members = Member::latest()->get();
 	    $skills  = Skill::all();
 	    $about = About::first();
 	    $posts = Post::orderBy('created_at','desc')->take(3)->get();
