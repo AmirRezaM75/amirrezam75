@@ -108,7 +108,7 @@
 
                     <div class="col-sm-6 col-md-4">
                         <div class="person-img wow fadeIn">
-                            <img class="z-depth-1" itemprop="image" src="{{asset('images/picture_profile.jpg')}}" alt="photo of Amir Reza Mehrbakhsh" title="Amir Reza Mehrbakhsh">
+                            <img class="z-depth-1" itemprop="image" src="{{asset('images/picture_profile.webp')}}" alt="photo of Amir Reza Mehrbakhsh" title="Amir Reza Mehrbakhsh">
                         </div>
                     </div>
                     <!-- about me image -->
