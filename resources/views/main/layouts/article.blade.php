@@ -23,7 +23,7 @@
     <meta property=og:url content="{{Request::url()}}">
     <meta property="article:published_time" content="{{$post->created_at}}">
     <meta property="article:modified_time" content="{{$post->updated_at}}">
-    <meta property="og:image" content="{{$post->photo ? asset('upload/post/'.$post->photo->path) : asset('images/single-blog.png')}}">
+    <meta property="og:image" content="{{ $post->image }}">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
     <!-- Favicon-->
     <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" >
@@ -84,7 +84,7 @@
                     <div class="col-sm-8">
                         <article class="single-post-page">
                             <div class="thumb-wrap">
-                                <img src="{{$post->photo ? asset('upload/post/'.$post->photo->path) : asset('images/single-blog.png')}}" alt="">
+                                <img src="{{ $post->image }}" alt="">
                             </div>
                             <div class="single-post-content">
                                 {!! $post->text !!}
