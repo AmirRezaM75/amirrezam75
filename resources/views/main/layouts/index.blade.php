@@ -202,7 +202,7 @@
                                                     <div class="card">
                                                         <div class="card-image waves-effect waves-block waves-light">
                                                             <div class="card-img-wrap">
-                                                                <img class="activator" src="{{asset('upload/member/'.$member->photo->path)}}" alt="{{$member->name}}">
+                                                                <img class="activator" src="{{ $member->image }}" alt="{{$member->name}}">
                                                             </div>
                                                         </div>
                                                         <div class="card-content">

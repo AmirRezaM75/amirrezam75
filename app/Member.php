@@ -11,4 +11,9 @@ class Member extends Model
     public function photo() {
         return $this->belongsTo('App\Photo');
     }
+
+    public function getImageAttribute()
+    {
+        return asset('storage/members/' . $this->photo->path);
+    }
 }

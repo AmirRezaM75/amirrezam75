@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class MembersController extends Controller
 {
@@ -44,7 +45,7 @@ class MembersController extends Controller
         $input = $request->all();
         if ($file = $request->file('photo')) {
             $name = "memberPicture_".time()."_".$file->getClientOriginalName();
-            $file->move('upload/member',$name);
+            Storage::put('members/'.$name, file_get_contents($file->getRealPath()));
             $photo = Photo::create(['path'=>$name]);
             $input['photo_id'] = $photo->id;
         }
@@ -89,10 +90,9 @@ class MembersController extends Controller
         if ($file = $request->file('photo')) {
             $name = "memberPicture_".time()."_".$file->getClientOriginalName();
             if ($member->photo_id != 0){
-                $oldPath =public_path().'/upload/member/'.$member->photo->path;
                 $oldPhoto = Photo::findOrFail($member->photo_id);
-                unlink($oldPath);
-                $file->move('upload/member',$name);
+                Storage::delete('members/' . $member->photo->path);
+                Storage::put('members/'.$name, file_get_contents($file->getRealPath()));
                 $oldPhoto->update(['path'=>$name]);
                 $input['photo_id'] = $oldPhoto->id;
             } else {
@@ -115,6 +115,8 @@ class MembersController extends Controller
     public function destroy($id)
     {
         $member = Member::findOrFail($id);
+        Storage::delete('members/' . $member->photo->path);
+        $member->photo->delete();
         $member->delete();
         Session::flash('delete_message','The member has been deleted successfully');
         return redirect('/admin/members');
