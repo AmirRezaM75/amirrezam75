@@ -84,10 +84,10 @@
                         <textarea name="text"></textarea>
                         <script>
                             var options = {
-                                filebrowserImageBrowseUrl: '/laravel-filemanager?type=Images',
-                                filebrowserImageUploadUrl: '/laravel-filemanager/upload?type=Images&_token=',
-                                filebrowserBrowseUrl: '/laravel-filemanager?type=Files',
-                                filebrowserUploadUrl: '/laravel-filemanager/upload?type=Files&_token=',
+                                filebrowserImageBrowseUrl: '/lfm?type=Images',
+                                filebrowserImageUploadUrl: '/lfm/upload?type=Images&_token=',
+                                filebrowserBrowseUrl: '/lfm?type=Files',
+                                filebrowserUploadUrl: '/lfm/upload?type=Files&_token=',
                                 customConfig: '{{asset('panel/assets/js/ckeditor-config.js')}}'
                             };
                             CKEDITOR.config.removeDialogTabs = 'image:Link;image:Upload';
