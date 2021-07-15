@@ -49,4 +49,8 @@ class Post extends Model
     public function path(){
         return "/blog/post/{$this->slug}";
     }
+
+	public function getImageAttribute() {
+		return $this->photo ? asset('storage/posts/'. $this->photo->path) : asset('images/single-blog.png');
+    }
 }

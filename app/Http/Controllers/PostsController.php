@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Storage;
 
 class PostsController extends Controller
 {
@@ -35,7 +36,7 @@ class PostsController extends Controller
             $input['user_id'] = Auth::user()->id;
             if ($file = $request->file('photo_id')) {
                 $name = "post"."_".time()."_".$file->getClientOriginalName();
-                $file->move('upload/post',$name);
+                Storage::put('posts/'.$name, file_get_contents($file->getRealPath()));
                 $photo = Photo::create(['path'=>$name]);
                 $input['photo_id'] = $photo->id;
             }
@@ -119,14 +120,13 @@ class PostsController extends Controller
         if ($file = $request->file('photo_id')) {
             $name = "post".$post->id."_".time()."_".$file->getClientOriginalName();
             if ($post->photo_id != 0){
-                $oldPath =public_path().'/upload/post/'.$post->photo->path;
                 $oldPhoto = Photo::findOrFail($post->photo_id);
-                unlink($oldPath);
-                $file->move('upload/post',$name);
+                Storage::delete('posts/' . $post->photo->path);
+                Storage::put('posts/'.$name, file_get_contents($file->getRealPath()));
                 $oldPhoto->update(['path'=>$name]);
                 $input['photo_id'] = $oldPhoto->id;
             } else {
-                $file->move('upload/post',$name);
+                Storage::put('posts/'.$name, file_get_contents($file->getRealPath()));
                 $photo = Photo::create(['path'=>$name]);
                 $input['photo_id'] = $photo->id;
             }
@@ -142,9 +142,8 @@ class PostsController extends Controller
         $post = Post::findOrFail($id);
         $post->tags()->detach();
         $photo = $post->photo;
-        $path = public_path().'/upload/post/'.$photo->path;
+        Storage::delete('posts/' . $photo->path);
         $photo->delete();
-        unlink($path);
         $post->delete();
         Session::flash('deleted_post','The Post has been deleted successfully');
         return redirect('/admin/posts');

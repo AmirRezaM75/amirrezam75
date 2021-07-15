@@ -252,7 +252,7 @@
                                                 <div class="card-image">
                                                     <div class="card-img-wrap">
                                                         <div class="blog-post-thumb waves-effect waves-block waves-light">
-                                                            <a href="{{route('posts.show',$post->slug)}}"><img class="activator" src="{{$post->photo ? asset('upload/post/'.$post->photo->path) : asset('images/single-blog.png')}}" alt=""></a>
+                                                            <a href="{{route('posts.show',$post->slug)}}"><img class="activator" src="{{ $post->image }}" alt=""></a>
                                                         </div>
                                                         <div class="post-body">
                                                             <a href="{{route('posts.show',$post->slug)}}" class="post-title-link brand-text"><h2 class="post-title">{{$post->title}}</h2></a>

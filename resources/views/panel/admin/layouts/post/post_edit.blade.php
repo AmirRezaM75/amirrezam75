@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-lg-12 margin-top-20">
                         @if($post->photo)
-                            <img src="{{asset('upload/post/'.$post->photo->path)}}" alt="post photo" class="img-responsive center-block">
+                            <img src="{{ $post->image }}" alt="post photo" class="img-responsive center-block">
                         @endif
                         <input type="file" name="photo_id" class="margin-top-20">
                     </div>
