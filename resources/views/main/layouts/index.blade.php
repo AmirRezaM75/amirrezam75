@@ -61,8 +61,8 @@
                         <div class="home-inner">
                             <div class="center-align home-content">
                                 <h1 class="home-title">سلام، <span>امیررضا مهربخش</span> هستم</h1>
-                                <h2 class="home-subtitle RTL_direction">طراح و توسعه دهنده&zwnj;ی وب از شرکت داکیا</h2>
-                                <a href="#contact" class="hire-me-btn btn waves-effect waves-light btn-large brand-bg white-text regular-text">دعوت به همکاری <i class="mdi-content-send left"></i>
+                                <h2 class="home-subtitle RTL_direction">طراح و توسعه‌دهنده وب</h2>
+                                <a href="#contact" class="hire-me-btn btn waves-effect waves-light btn-large brand-bg white-text regular-text">هرچی میخوای بنویس <i class="mdi-content-send left"></i>
                                 </a>
                             </div>
                         </div>
@@ -108,7 +108,11 @@
 
                     <div class="col-sm-6 col-md-4">
                         <div class="person-img wow fadeIn">
-                            <img class="z-depth-1" itemprop="image" src="{{asset('images/picture_profile.webp')}}" alt="photo of Amir Reza Mehrbakhsh" title="Amir Reza Mehrbakhsh">
+                            <img class="z-depth-1"
+                                 itemprop="image"
+                                 src="{{asset('images/picture_profile.jpg')}}"
+                                 alt="Amir Reza Mehrbakhsh"
+                                 title="Tired of this picture profile :)">
                         </div>
                     </div>
                     <!-- about me image -->
@@ -117,9 +121,13 @@
                         <div class="person-info">
                             <h3 class="about-subtitle">اطلاعات شخصی</h3>
                             <h5><span>نام :</span> <span itemprop="name">{{$about->name}}</span></h5>
-                            <h5><span>سن :</span> {{date('Y') - $about->birthday}} </h5>
+                            {{--<h5><span>سن :</span> {{date('Y') - $about->birthday}} </h5>--}}
                             <h5><span>شغل :</span> <span itemprop="jobTitle">{{$about->job}}</span> </h5>
                             <h5><span>ایمیل :</span> <a href="mailto:{{$about->email}}" class="EnFont">{{$about->email}}</a> </h5>
+                            <h5>
+                                <span>شبکه‌های اجتماعی :</span>
+                                @include('partials._socials', ['styles' => 'float: none; display: inline-block'])
+                            </h5>
                         </div>
                     </div>
                     <!-- about me info -->
@@ -181,7 +189,7 @@
     <!-- #resume Section end -->
 
     <!-- Team Section start -->
-    <section id="team" class="scroll-section root-sec brand-bg padd-tb-120 team-wrap">
+    {{--<section id="team" class="scroll-section root-sec brand-bg padd-tb-120 team-wrap">
         <div class="container">
             <div class="row">
                 <div class="clearfix team-inner">
@@ -233,7 +241,7 @@
 
         </div>
         <!-- .container -->
-    </section>
+    </section>--}}
     <!-- #team Section end -->
 
     <!-- #blog Section start -->
